@@ -1,0 +1,1468 @@
+QWidget {
+  background-color: #1C1D1D;
+  border: none;
+  color: #f1f1f1;
+}
+
+QWidget:disabled {
+  background-color: #1C1D1D;
+  border-color: #434346;
+  color: #656565;
+}
+
+QWidget #tabFusion {
+  background-color: #22305B;
+}
+
+QFrame{
+  background-color:#1C1D1D;
+}
+
+QProgressBar {
+	border-radius:16px;
+	text-align:center;
+	border:1px solid #1C1D1D;
+	background-color:#1C1D1D;
+}
+QProgressBar::chunk{
+	border-radius:16px;
+	background-color:#2B649A;
+}
+
+QStackedWidget {
+  background-color: transparent;
+}
+
+QComboBox:hover, QLineEdit:hover, QAbstractSpinBox:hover {
+  background-color: #22305b;
+}
+
+QAbstractButton:pressed, QAbstractButton:checked {
+  background-color: #434346;
+}
+QToolButton,
+QPushButton {
+  border: 0px solid #3f3f46;
+  padding: 1px 1px;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+  background-color: #2D3745;
+  border-radius: 4px;
+}
+
+QToolButton:hover,
+QPushButton:hover {
+  background-color: #243B5A;
+}
+QToolButton:pressed,
+QPushButton:pressed {
+  background-color: #2B649A;
+}
+
+QPushButton:checked, QToolButton:checked {
+  background-color: #2B649A;
+}
+
+QPushButton:disabled {
+  background-color: rgba(82,127,217, 51);
+  color: #6977a3;
+}
+
+QLabel {
+  color: rgba(255, 255, 255, 240);
+  background-color: transparent;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+}
+
+QLabel:disabled {
+  color: #465686;
+  background-color: transparent;
+}
+
+QTextEdit {
+  color: white;
+  background-color: #292B2F;
+  padding-left: 8px; 
+  border: 0px;
+}
+
+QToolBar QToolButton {
+  padding: 0px;
+  background-color: #3377ff;
+}
+
+QToolButton#qt_toolbar_ext_button {
+  background-color: transparent;
+  border: none;
+  min-width: 12px;
+  max-width: 12px;
+  padding: 0;
+}
+
+QToolBox::tab {
+  border: 1px solid #3f3f46;
+}
+
+QToolBox::tab:hover {
+  background-color: #434346;
+}
+
+QToolBox::tab:selected {
+  background-color: #1c97ea;
+  border: 1px solid #1c97ea;
+}
+
+QAbstractItemView {
+  alternate-background-color: #1b1b1c;
+  background-color: transparent;
+}
+
+QAbstractItemView::item {
+  background-color: transparent;
+}
+
+QAbstractItemView::item:selected {
+  outline: 1px solid #2B649A;
+  background-color: transparent;
+  border: 1px solid #2B649A;
+}
+
+
+QListWidget::item:selected {
+  border: 2px solid #00ff00;
+  outline: 2px solid #00ff00;
+}
+
+QListView::item:selected
+{
+  border:2px solid #000000;
+}
+
+QTableView
+{
+  font: 16px "Alibaba PuHuiTi 2.0 55 Regular";
+	border: 1px solid #2B303B;
+}
+
+QTableView::item{  
+  padding:1px;
+  border: 1px solid #2B2B2B;
+}
+QHeaderView{
+  background-color: #2B2B2B;
+  font: 16px "Alibaba PuHuiTi 2.0 55 Regular";
+  color: white;
+}
+
+QHeaderView::section {
+  background-color: #2B2B2B;
+  border: 1px solid transparent;
+  padding-left: 10px;
+  font: 16px "Alibaba PuHuiTi 2.0 55 Regular";
+  color: white;
+  min-height: 30px;
+  max-height: 30px;
+}
+
+QHeaderView::down-arrow {
+  height: 16px;
+  width: 16px;
+}
+
+QHeaderView::up-arrow {
+  height: 16px;
+  width: 16px;
+}
+
+QGroupBox, QGroupBox:disabled {
+  border: 1px solid #152042;
+  margin-top: 8px;
+  padding-top: 8px;
+  background-color: #1C1D1D;
+}
+
+QGroupBox::title {
+  padding: 0 4px;
+  subcontrol-origin: margin;
+  subcontrol-position: top center;
+}
+
+QLineEdit {
+  background-color: #292B2F;
+  border: 0px solid #525F7B;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+  padding-left: 8px; 
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+QAbstractSpinBox {
+  background-color: #292B2F;
+  border: 0px solid #525F7B;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+  padding-left: 4px; 
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+QComboBox {
+  background-color: #292B2F;
+  border: 0px solid #525F7B;
+  selection-background-color: #3377ff;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+  padding-left: 8px; 
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+QComboBox::drop-down {
+  border: none;
+  background: transparent;
+  subcontrol-position: right;
+  width: 40px;
+}
+
+QComboBox::drop-down:hover {
+  
+}
+
+QComboBox::down-arrow {
+  image: url(bin/images/arrow_down.png);
+  padding-right: 8;
+  padding-top: 1;
+}
+QComboBox::down-arrow:checked {
+  image: url(bin/images/arrow_up.png);
+  padding-right: 8;
+  padding-top: 1;
+}
+
+QTextBrowser {
+  background-color: transparent;
+  font: 14pt "Alibaba PuHuiTi 2.0 55 Regular";
+  color: #3377ff;
+}
+
+QAbstractSpinBox::up-button, QAbstractSpinBox::down-button {
+  background-color: transparent;
+  border: none;
+  height: 9px;
+}
+
+QAbstractSpinBox::up-button:hover, QAbstractSpinBox::down-button:hover {
+  background-color: #1f1f20;
+}
+
+QAbstractSpinBox::up-arrow {
+  image: url(bin/images/arrow_up1.png);
+}
+
+QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
+  image: url(bin/images/arrow_up1.png);
+}
+
+QAbstractSpinBox::up-arrow:hover {
+  image: url(bin/images/arrow_up1.png);
+}
+
+QAbstractSpinBox::up-arrow:pressed {
+  image: url(bin/images/arrow_up1.png);
+}
+
+QAbstractSpinBox::down-arrow {
+  image: url(bin/images/arrow_down1.png);
+}
+
+QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
+  image: url(bin/images/arrow_down1.png);
+}
+
+QAbstractSpinBox::down-arrow:hover {
+  image: url(bin/images/arrow_down1.png);
+}
+
+QAbstractSpinBox::down-arrow:pressed {
+  image: url(bin/images/arrow_down1.png);
+}
+
+QRadioButton::indicator:unchecked {
+  image: url(bin/images/radio1.png);
+}
+QCheckBox, QCheckBox:hover, QCheckBox:disabled, QCheckBox:checked, QRadioButton, QRadioButton:hover, QRadioButton:disabled, QRadioButton:checked {
+  background-color: none;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+  spacing: 5px;
+}
+QMenu::indicator,
+QCheckBox::indicator, QRadioButton::indicator {
+  height: 26px;
+  width: 26px;
+  left: 2px;
+}
+QMenu::indicator:unchecked,
+QCheckBox::indicator:unchecked {
+  image: url(bin/images/unchecked.png);
+}
+
+QCheckBox::indicator:unchecked:hover {
+  image: url(bin/images/unchecked.png);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(bin/images/uncheckedd.png);
+}
+QMenu::indicator:checked,
+QCheckBox::indicator:checked {
+  image: url(bin/images/checked.png);
+}
+QRadioButton::indicator:checked {
+  image: url(bin/images/radio2.png);
+}
+
+QSlider {
+  background-color: transparent;
+}
+
+QSlider::groove {
+  background-color: #282828;
+  border-radius: 0px;
+}
+
+QSlider::groove:hover {
+  background-color: #282828;
+}
+
+QSlider::groove:horizontal {
+  height: 4px;
+}
+
+QSlider::groove:vertical {
+  width: 4px;
+}
+
+QSlider::handle {
+  background-color: #65B7F3;
+}
+
+QSlider::handle:hover {
+  /*background-color: #1c97ea;*/
+}
+
+QSlider::handle:pressed {
+  background-color: #65B7F3;
+}
+
+QSlider::handle:horizontal {
+  width: 8px;
+  margin:-8px 0px -8px 0px;
+}
+
+QSlider::handle::vertical {
+  margin: 0 -8px;
+  height: 8px;
+}
+
+QSlider:sub-page{
+  background-color: #65B7F3;
+}
+
+ctkRangeWidget QSlider{
+    selection-background-color:#527FD9;
+}
+QLineEdit:hover {
+  border: 1px solid #3377FF;
+}
+
+QMenu {
+  border: 1px solid #3e3e40;
+}
+
+/*QMenu QWidget {
+  background-color: #de20b5;
+}*/
+
+QMenu::item {
+  background-color: #434C5D;
+  font: 12pt "Alibaba PuHuiTi 2.0 55 Regular";
+  min-height: 14px; /* 菜单项的最小高度 */
+  min-width: 60px;
+  padding: 5px 10px 5px 10px;/*上右下左*/
+  /* margin: 2px 5px 2px 10px; 菜单项距其上下菜单项分别有2px，距菜单左右边界分别有10px和5px */
+}
+
+QMenu::item:selected {
+  background-color: #3377ff;
+}
+
+QMenu::separator {
+  height: 1px;
+  background-color: #3e3e40;
+}
+
+QMenuBar {
+	background-color: #025AD3;
+  font: 18pt "Alibaba PuHuiTi 2.0 55 Regular";
+}
+
+QMenuBar::item {
+  font: 18pt "Alibaba PuHuiTi 2.0 55 Regular";
+  padding: 16 60px;
+}
+
+QMenuBar::item:selected {
+  background-color: #3377ff;
+}
+
+QScrollBar {
+  background-color: #1F1F1F;
+  border-radius: 0px;
+}
+
+QScrollBar:horizontal {
+  height: 16px;
+  margin: 0 16px 0 16px;
+}
+
+QScrollBar:vertical {
+  width: 16px;
+  margin: 16px 0 16px 0;
+}
+
+QScrollBar::handle {
+  background-color: #525F7B;
+}
+
+QScrollBar::handle:hover {
+  background-color: #3377FF;
+}
+
+QScrollBar::handle:pressed {
+  background-color: #527FD9;
+}
+
+QScrollBar::handle:horizontal {
+  height: 16px;
+  min-width: 40px;
+  margin: 16px 0 16px 0;
+}
+
+QScrollBar::handle:vertical {
+  width: 16px;
+  min-height: 40px;
+  margin: 0 16px 0 16px;
+}
+
+QScrollBar::add-page, QScrollBar::sub-page {
+  background-color: none;
+}
+
+QScrollBar::add-line, QScrollBar::sub-line {
+  background-color: #465686;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal {
+  subcontrol-position: right;
+  width: 16px;
+}
+
+QScrollBar::sub-line:horizontal {
+  subcontrol-position: left;
+  width: 16px;
+}
+
+QScrollBar::add-line:vertical {
+  subcontrol-position: bottom;
+  height: 16px;
+}
+
+QScrollBar::sub-line:vertical {
+  subcontrol-position: top;
+  height: 16px;
+}
+
+QScrollBar::add-line:horizontal:hover {
+  background-color: #7ca7ff;
+}
+
+QScrollBar::sub-line:horizontal:hover {
+  background-color: #7ca7ff;
+}
+
+QScrollBar::add-line:vertical:hover {
+  background-color: #7ca7ff;
+}
+
+QScrollBar::sub-line:vertical:hover {
+  background-color: #7ca7ff;
+}
+
+QScrollBar::up-arrow, QScrollBar:down-arrow {
+  width: 16px;
+  height: 8px;
+}
+
+QScrollBar:left-arrow, QScrollBar::right-arrow {
+  width: 8px;
+  height: 16px;
+}
+
+QScrollBar::down-arrow {
+  image: url(bin/images/arrow_down.png);
+}
+
+QScrollBar::down-arrow:disabled {
+  image: url(bin/images/arrow_down.png);
+}
+
+QScrollBar::down-arrow:hover {
+  image: url(bin/images/arrow_down.png);
+}
+
+QScrollBar::down-arrow:pressed {
+  image: url(bin/images/arrow_down.png);
+}
+
+QScrollBar::left-arrow {
+  image: url(bin/images/arrow_left.png);
+}
+
+QScrollBar::left-arrow:disabled {
+  image: url(bin/images/arrow_left.png);
+}
+
+QScrollBar::left-arrow:hover {
+  image: url(bin/images/arrow_left.png);
+}
+
+QScrollBar::left-arrow:pressed {
+  image: url(bin/images/arrow_left.png);
+}
+
+QScrollBar::right-arrow {
+  image: url(bin/images/arrow_right.png);
+}
+
+QScrollBar::right-arrow:disabled {
+  image: url(bin/images/arrow_right.png);
+}
+
+QScrollBar::right-arrow:hover {
+  image: url(bin/images/arrow_right.png);
+}
+
+QScrollBar::right-arrow:pressed {
+  image: url(bin/images/arrow_right.png);
+}
+
+QScrollBar::up-arrow {
+image: url(bin/images/arrow_up.png);
+}
+
+QScrollBar::up-arrow:disabled {
+image: url(bin/images/arrow_up.png);
+}
+
+QScrollBar::up-arrow:hover {
+image: url(bin/images/arrow_up.png);
+}
+
+QScrollBar::up-arrow:pressed {
+image: url(bin/images/arrow_up.png);
+}
+
+QTabWidget::pane {
+  border: none;
+}
+
+QTabBar::tab {
+  background-color: transparent;
+  font: 15pt "Alibaba PuHuiTi 2.0 55 Regular";
+  border: none;
+  padding: 1px;
+  width: 156px;
+  height: 60px;
+}
+
+QTabBar::tab:middle {
+  border-left: none;
+}
+
+QTabBar::tab:last {
+  border-left: none;
+}
+
+QTabBar::tab:next-selected {
+  border-right: none;
+}
+
+QTabBar::tab:selected {
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  background-color: #527FD9;
+}
+
+QTabBar::tab:!selected {
+  background-color: transparent;
+}
+
+QTabBar::tab:!selected:hover {
+  background-color: transparent;
+}
+
+#TabCloseButton {
+  background-color: none;
+}
+
+QTreeWidget::branch:closed:has-children:has-siblings,
+QTreeWidget::branch:closed:has-children:!has-siblings,
+QTreeView::branch:closed:has-children:has-siblings,
+QTreeView::branch:closed:has-children:!has-siblings {
+  image: url(bin/images/arrow_right.png);
+  background-color:transparent;
+}
+QTreeWidget::branch:closed:has-children:has-siblings:hover,
+QTreeWidget::branch:closed:has-children:!has-siblings:hover,
+QTreeView::branch:closed:has-children:has-siblings:hover,
+QTreeView::branch:closed:has-children:!has-siblings:hover {
+  image: url(bin/images/arrow_right.png);
+}
+
+QTreeView::branch:open:has-children:has-siblings,
+QTreeView::branch:open:has-children:!has-siblings {
+  image: url(bin/images/arrow_down.png);
+  background-color:transparent;
+}
+
+QTreeView::branch:open:has-children:has-siblings:hover,
+QTreeView::branch:open:has-children:!has-siblings:hover {
+  image: url(bin/images/arrow_down.png);
+  background-color:transparent;
+}
+
+QTreeView::indicator:unchecked {
+  background-color:transparent;
+}
+
+QTreeView::indicator:unchecked:selected {
+  background-color:transparent;
+}
+
+QTreeView::indicator:checked, QTreeView::indicator:indeterminate {
+  background-color:transparent;
+}
+
+QTreeView::indicator:checked:selected, QTreeView::indicator:indeterminate:selected {
+  background-color:transparent;
+}
+
+QTreeWidget::item:selected, QTreeWidget::branch:selected{
+	border-left-color:transparent;
+	border-right-color:transparent;
+	border-top-color:transparent;
+	border-bottom-color:transparent;
+	background-color:#1c1d1d;
+}
+
+QTableWidget
+{
+    font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+	border: 1px solid #2B303B;
+}
+
+QTableWidget::item {
+    border-bottom: 1px solid #2B303B;
+}
+
+QTableWidget::item::selected {
+    color:rgba(255, 255, 255, 180); 
+    background-color:#527FD9;
+}
+QTableWidget::indicator  {
+    width:24px;
+    height:24px;
+}
+QTableWidget::indicator::checked{
+	image: url(bin/images/checked.png);
+}
+
+QTableWidget::indicator::unchecked{
+	image: url(bin/images/unchecked.png);
+}
+QComboBox QAbstractItemView{
+  outline: 0px;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";;
+}
+
+QComboBox QAbstractItemView::item { 
+  min-height: 48px;  
+  padding-left: 8px;   
+  border: none;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+  color:#fff;
+}
+
+QComboBox QAbstractItemView::item:selected {
+  background-color: #2458BF;
+  border: none;
+}
+
+#FrameworkTop #lbl_icon{
+  background-image: url(bin/images/logo_en.png);  
+  background-repeat: no-repeat;
+}
+
+#FrameworkTop #lblSwitch{
+  background-image: url(bin/images/icon_switch_hard.png);
+}
+
+#FrameworkTop #pushButton{
+  background-color: transparent;
+  background-image: url(bin/images/btn_hard_switch.png);
+}
+
+#FrameworkTop #widget_6
+{
+  background-color: #2D3745;
+  border-radius:4px;
+}
+
+#FrameworkTop #btnClear,
+#FrameworkTop #btnData,
+#FrameworkTop #btnDoc,
+#FrameworkTop #btnLoad,
+#FrameworkTop #btnSave,
+#FrameworkTop #btnSetting,
+#FrameworkTop #pushButton_2,
+#FrameworkTop #pushButton_3,
+#FrameworkTop #pushButton_6,
+#FrameworkTop #pushButton_9
+{
+  background-color: transparent;
+  background-origin: content;
+  background-position: left;
+  padding-left: 2px;
+  background-repeat: no-repeat;
+
+  text-align: right;
+  padding-right: 2px;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+
+#UnitPunctureHeartBottom2 #btnChannel:checked,
+#UnitPunctureHeartBottom2 #btnData:checked,
+#UnitPunctureHeartBottom2 #btnRegister:checked,
+#UnitPunctureHeartBottom2 #btnShow:checked
+{
+  background-color: #2B649A;
+}
+
+
+#UnitPunctureGuideBottom2 #btnBlood:checked,
+#UnitPunctureGuideBottom2 #btnReconstruction:checked,
+#UnitPunctureGuideBottom2 #btnScore:checked,
+#UnitPunctureGuideBottom2 #btnChannel:checked,
+#UnitPunctureGuideBottom2 #btnData:checked,
+#UnitPunctureGuideBottom2 #btnGuide:checked,
+#UnitPunctureGuideBottom2 #btnMask:checked,
+#UnitPunctureGuideBottom2 #btnProcess:checked,
+#FrameworkTop #btnData:checked,
+#FrameworkTop #btnDoc:checked
+{
+  background-color: #2B649A;
+}
+
+
+#UnitPunctureHeartBottom2 #btnChannel:disabled,
+#UnitPunctureHeartBottom2 #btnData:disabled,
+#UnitPunctureHeartBottom2 #btnRegister:disabled,
+#UnitPunctureHeartBottom2 #btnShow:disabled
+{
+  color: #888888;
+}
+
+
+#UnitPunctureGuideBottom2 #btnBlood:disabled,
+#UnitPunctureGuideBottom2 #btnReconstruction:disabled,
+#UnitPunctureGuideBottom2 #btnScore:disabled,
+#UnitPunctureGuideBottom2 #btnChannel:disabled,
+#UnitPunctureGuideBottom2 #btnData:disabled,
+#UnitPunctureGuideBottom2 #btnGuide:disabled,
+#UnitPunctureGuideBottom2 #btnMask:disabled,
+#UnitPunctureGuideBottom2 #btnProcess:disabled,
+#FrameworkTop #btnData:disabled,
+#FrameworkTop #btnDoc:disabled
+{
+  color: #888888;
+}
+
+#FrameworkTop #btnClear{
+  background-image: url(bin/images/btn_clear.png);
+  padding-right: 0px;
+}
+
+#FrameworkTop #btnData{
+  background-image: url(bin/images/btn_data.png);
+}
+
+#FrameworkTop #btnDoc{
+  background-image: url(bin/images/btn_doc.png);
+}
+
+#FrameworkTop #btnLoad{
+  background-image: url(bin/images/btn_load.png);
+  padding-right: -1px;
+}
+
+#FrameworkTop #btnSave{
+  background-image: url(bin/images/btn_save.png);
+  padding-right: -1px;
+
+}
+
+#FrameworkTop #lblIcon{
+  background-image: url(bin/images/btn_times.png);
+}
+
+#FrameworkTop #pushButton_2{
+  background-image: url(bin/images/btn_friend.png);
+}
+
+#FrameworkTop #pushButton_3{
+  background-image: url(bin/images/btn_user.png);
+}
+
+#FrameworkTop #pushButton_6{
+  background-image: url(bin/images/btn_vip.png);
+}
+
+#FrameworkTop #pushButton_9{
+  background-image: url(bin/images/btn_update.png);
+}
+
+#FrameworkTop #btnSetting{
+  background-image: url(bin/images/btn_setting.png);
+  padding-right: 12px;
+}
+
+
+#UnitPunctureHeartBottom2 #btnData,
+#UnitPunctureHeartBottom2 #btnChannel,
+#UnitPunctureHeartBottom2 #btnShow,
+#UnitPunctureHeartBottom2 #btnRegister{
+  background-color: transparent;
+  background-origin: content;
+  background-position: left;
+  padding-left: 8px;
+  background-repeat: no-repeat;
+
+  text-align: right;
+  padding-right: 8px;
+  font-size: 16px;
+  color: #FFFFFF;
+  border-radius:4px;
+}
+
+
+#UnitPunctureGuideBottom2 #btnBlood,
+#UnitPunctureGuideBottom2 #btnReconstruction,
+#UnitPunctureGuideBottom2 #btnChannel,
+#UnitPunctureGuideBottom2 #btnData,
+#UnitPunctureGuideBottom2 #btnGuide,
+#UnitPunctureGuideBottom2 #btnMask,
+#UnitPunctureGuideBottom2 #btnScore,
+#UnitPunctureGuideBottom2 #btnProcess{
+  background-color: transparent;
+  background-origin: content;
+  background-position: left;
+  padding-left: 8px;
+  background-repeat: no-repeat;
+
+  text-align: right;
+  padding-right: 8px;
+  font-size: 16px;
+  color: #FFFFFF;
+  border-radius:4px;
+}
+
+
+#UnitPunctureHeartBottom2 #btnRegister{
+  background-image: url(bin/images/btn_menu_blood.png);
+}
+
+#UnitPunctureHeartBottom2 #btnChannel{
+  background-image: url(bin/images/btn_menu_channel.png);
+}
+
+#UnitPunctureHeartBottom2 #btnData{
+  background-image: url(bin/images/btn_menu_data.png);
+}
+
+#UnitPunctureHeartBottom2 #btnShow{
+  background-image: url(bin/images/btn_menu_guide.png);
+}
+
+
+
+#UnitPunctureGuideBottom2 #btnReconstruction{
+  background-image: url(bin/images/btn_menu_blood.png);
+}
+
+#UnitPunctureGuideBottom2 #btnBlood{
+  background-image: url(bin/images/btn_menu_blood.png);
+}
+
+#UnitPunctureGuideBottom2 #btnScore{
+  background-image: url(bin/images/btn_menu_blood.png);
+}
+
+#UnitPunctureGuideBottom2 #btnChannel{
+  background-image: url(bin/images/btn_menu_channel.png);
+}
+
+#UnitPunctureGuideBottom2 #btnData{
+  background-image: url(bin/images/btn_menu_data.png);
+}
+
+#UnitPunctureGuideBottom2 #btnGuide{
+  background-image: url(bin/images/btn_menu_guide.png);
+}
+
+#UnitPunctureGuideBottom2 #btnMask{
+  background-image: url(bin/images/btn_menu_mask.png);
+}
+
+#UnitPunctureGuideBottom2 #btnProcess{
+  background-image: url(bin/images/btn_menu_process.png);
+}
+
+#UnitPunctureGuideBottom2 #btnBlood:disabled{
+  background-image: url(bin/images/btn_menu_bloodd.png);
+}
+
+#UnitPunctureGuideBottom2 #btnReconstruction:disabled{
+  background-image: url(bin/images/btn_menu_bloodd.png);
+}
+
+#UnitPunctureGuideBottom2 #btnScore:disabled{
+  background-image: url(bin/images/btn_menu_bloodd.png);
+}
+
+#UnitPunctureGuideBottom2 #btnChannel:disabled{
+  background-image: url(bin/images/btn_menu_channeld.png);
+}
+
+#UnitPunctureGuideBottom2 #btnData:disabled{
+  background-image: url(bin/images/btn_menu_datad.png);
+}
+
+#UnitPunctureGuideBottom2 #btnGuide:disabled{
+  background-image: url(bin/images/btn_menu_guided.png);
+}
+
+#UnitPunctureGuideBottom2 #btnMask:disabled{
+  background-image: url(bin/images/btn_menu_maskd.png);
+}
+
+#UnitPunctureGuideBottom2 #btnProcess:disabled{
+  background-image: url(bin/images/btn_menu_processd.png);
+}
+
+#UnitPunctureHeartBottom2 #lblArrow1,
+#UnitPunctureHeartBottom2 #lblArrow2,
+#UnitPunctureHeartBottom2 #lblArrow3,
+#UnitPunctureGuideBottom2 #lblArrow1,
+#UnitPunctureGuideBottom2 #lblArrow2,
+#UnitPunctureGuideBottom2 #lblArrow3,
+#UnitPunctureGuideBottom2 #lblArrow4,
+#UnitPunctureGuideBottom2 #lblArrow5,
+#UnitPunctureGuideBottom2 #lblArrow6{
+  background-image: url(bin/images/btn_menu_arrow.png);
+}
+
+#UnitTeaching #btnDicom{
+  background-image: url(bin/images/teach_dicom.png);
+}
+
+#UnitTeaching #btnVideo{
+  background-image: url(bin/images/teach_video.png);
+}
+
+#UnitTeaching #btnAnaly{
+  background-image: url(bin/images/teach_analy.png);
+}
+
+#UnitCTHeadVolumes #btn3D{
+  background-color: transparent;
+  background-image: url(bin/images/CTClose.png);
+}
+#UnitCTHeadVolumes #btn3D:checked{
+  background-color: transparent;
+  background-image: url(bin/images/CTOpen.png);
+}
+
+#UnitCTHeadVolumes #btnColor{
+  background-image: url(bin/images/CTColor.png);
+}
+
+#UnitCTHeadVolumes #btnCut{
+  background-image: url(bin/images/CTCut.png);
+}
+
+#UnitCTHeadVolumes #btnGray{
+  background-image: url(bin/images/CTGray.png);
+}
+
+#UnitCTHeadVolumes #btnGrayAdjust{
+  background-image: url(bin/images/CTGrayAdjust.png);
+}
+
+#UnitCTHeadVolumes #btnMPR{
+  background-image: url(bin/images/CTMPR.png);
+}
+
+#UnitCTHeadVolumes #btnRemove{
+  background-image: url(bin/images/CTRemove.png);
+}
+
+#UnitCTHeadVolumes #btnROI{
+  background-image: url(bin/images/CTROI.png);
+}
+
+#UnitCTHeadVolumes #lblCT1{
+  background-image: url(bin/images/CT-AAA.png);
+}
+
+#UnitCTHeadVolumes #lblCT2{
+  background-image: url(bin/images/CT-AAA2.png);
+}
+
+#UnitCTHeadVolumes #lblCTChest{
+  background-image: url(bin/images/CT-Chest.png);
+}
+
+#UnitCTHeadVolumes #btnCT1,
+#UnitCTHeadVolumes #btnCT2,
+#UnitCTHeadVolumes #btnCTChest{
+  background-color:transparent;
+}
+
+#UnitCTHeadVolumes #btnCT1:checked,
+#UnitCTHeadVolumes #btnCT2:checked,
+#UnitCTHeadVolumes #btnCTChest:checked{
+  background-color:#2B649A;;
+}
+
+#UnitCreatePunctureGuide #btnBuyPrint,
+#UnitCreatePunctureGuide #btnBuyHead,
+#UnitCreatePunctureGuide #btnPrint{
+  background-image: url(bin/images/btn_buy.png);
+  background-color: #1C1D1D;
+  border: 1px solid #2D3745;
+  background-origin: content;
+  background-position: left;
+  padding-left: 2px;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+
+  text-align: right;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+#UnitCreatePunctureGuide #btnBuyPrint{
+  padding-right: 2px;
+}
+#UnitCreatePunctureGuide #btnPrint,
+#UnitCreatePunctureGuide #btnBuyHead{
+  padding-right: 17px;
+}
+
+#UnitCreatePunctureGuide #btnChoosePlane{
+  background-image: url(bin/images/guide_select.png);
+}
+
+#UnitCreatePunctureGuide #btnStartCut{
+  background-image: url(bin/images/guide_segment.png);
+}
+
+#UnitCreatePunctureGuide #btnGreenExport{
+  background-image: url(bin/images/export_green.png);
+}
+
+#UnitCreatePunctureGuide #btnRedExport{
+  background-image: url(bin/images/export_red.png);
+}
+
+#UnitCreatePunctureGuide #btnChoosePlane:disabled{
+  background-image: url(bin/images/guide_selectd.png);
+}
+
+#UnitCreatePunctureGuide #btnStartCut:disabled{
+  background-image: url(bin/images/guide_segmentd.png);
+}
+
+#UnitCreatePunctureGuide #btnGreenExport:disabled{
+  background-image: url(bin/images/export_greend.png);
+}
+
+#UnitCreatePunctureGuide #btnExportPng{
+  background-image: url(bin/images/export_png.png);
+}
+
+#UnitCreatePunctureGuide #btnRedExport:disabled{
+  background-image: url(bin/images/export_redd.png);
+}
+
+#UnitCTMask #btnCut{
+  background-image: url(bin/images/mask_cut.png);
+}
+#UnitCTMask #btnSelectLand,
+#UnitCTMask #btnHollow{
+  background-image: url(bin/images/mask_hollow.png);
+}
+
+#UnitCTMask #btnMaxLand{
+  background-image: url(bin/images/mask_maxland.png);
+}
+
+#UnitCTHeadVolumes #btnLongmen{
+  background-image: url(bin/images/mask_longmen.png);
+}
+
+#UnitCTTumor #pushButton_7,
+#UnitCTTumor #pushButton_8,
+#UnitCTMask #pushButton_6,
+#FrameworkMenuItemMain #pushButton,
+#UnitCTMask #pushButton_7{
+  background-color: transparent;
+  background-origin: content;
+  background-position: left;
+  padding-left: 2px;
+  background-repeat: no-repeat;
+
+  text-align: right;
+  font-size: 14px;
+  color: #FFFFFF;
+  border-radius:4px;
+  border: 1px solid #2D3745;
+}
+
+#UnitCTTumor #pushButton_8,
+#UnitCTMask #pushButton_6{
+  background-image: url(bin/images/btn_undo.png);
+  padding-right: 12px;
+}
+
+#FrameworkMenuItemMain #pushButton{
+  background-image: url(bin/images/icon_friend.png);
+  padding-right: 8px;
+}
+
+#UnitCTTumor #pushButton_7,
+#UnitCTMask #pushButton_7{
+  background-image: url(bin/images/btn_redo.png);
+  padding-right: 1px;
+}
+
+#UnitCTTumor #btnCut{
+  background-image: url(bin/images/mask_cut.png);
+}
+
+#UnitCTTumor #btnMaxLand{
+  background-image: url(bin/images/mask_maxland.png);
+}
+#UnitCTTumor #btnSaveMaxLand{
+  background-image: url(bin/images/btn_select_island.png);
+}
+
+#UnitCTTumor #btnPaint{
+  background-image: url(bin/images/btn_draw.png);
+}
+
+#UnitCTTumor #btnLeveltracing{
+  background-image: url(bin/images/btn_magic.png);
+}
+
+#UnitCTTumor #btnFill{
+  background-image: url(bin/images/btn_fill.png);
+}
+
+#UnitCTTumor #btnDraw{
+  background-image: url(bin/images/btn_pen.png);
+}
+
+#JNormalUnitAssist #btnAddTarget
+{
+  background-image: url(bin/images/btn_target.png);
+  background-repeat: no-repeat;
+}
+
+#JNormalUnitAssist #btnAddEntry
+{
+  background-image: url(bin/images/btn_entry.png);
+  background-repeat: no-repeat;
+}
+
+#JNormalUnitAssist #btnPalette
+{
+  image: url(bin/images/btn_color.png);
+}
+
+#JNormalUnitAssist #btnDirectionFiber
+{
+  image: url(bin/images/btn_view.png);
+}
+
+#JNormalUnitAssist #target_lock_cb,
+#JNormalUnitAssist #entry_lock_cb
+{
+  image: url(bin/images/btn_unlock.png);
+  background-color:transparent;
+}
+
+#JNormalUnitAssist #target_lock_cb:checked,
+#JNormalUnitAssist #entry_lock_cb:checked
+{
+  image: url(bin/images/btn_lock.png);
+}
+
+#Remote3DPrinter{
+  background-color:transparent;
+}
+
+#Remote3DPrinter #btnClose,
+#JMessageUI #btnClose,
+#ReleaseDialog #btnClose,
+#NoteDialog #btnClose,
+#MyDataProbe #btnClose,
+#JPopWindow #btnClose
+{
+  background-color:transparent;
+  image: url(bin/images/btn_close.png);  
+}
+
+#Declaration,
+#JMessageUI,
+#ReleaseDialog,
+#NoteDialog,
+#MyDataProbe,
+#JPopWindow{
+  background-color:transparent;
+}
+
+#NoteDialog #widget,
+#Declaration #widget,
+#JMessageUI #widget,
+#ReleaseDialog #widget,
+#MyDataProbe #widget,
+#JPopWindow #widget
+{
+  background-color:#2B2B2B;
+}
+
+#NoteDialog #NoteDialog2,
+#JPopWindow #JPopWindow2,
+#MyDataProbe #MyDataProbe2,
+#JMessageUI #container,
+#ReleaseDialog #container{
+  border:1px solid #2B2B2B;
+}
+
+#Declaration #btnCancel,
+#JMessageUI #btnCancel {
+  border: 0px solid #3f3f46;
+  padding: 1px 1px;
+  font: 14px "Alibaba PuHuiTi 2.0 55 Regular";
+  background-color: red;
+  border-radius: 4px;
+}
+
+#Declaration #btnCancel:hover,
+#JMessageUI #btnCancel:hover{
+  background-color: #243B5A;
+}
+#Declaration #btnCancel:pressed,
+#JMessageUI #btnCancel:pressed {
+  background-color: #243B5A;
+}
+
+#FrameworkMenuItemSub #bg,
+#FrameworkMenuItemSub #widget,
+#FrameworkMenuItemSub #widget_2,
+#FrameworkMenuItemSub #tab,
+#FrameworkMenuItemSub #bgPage1,
+#FrameworkMenuItemMain #bg,
+#FrameworkMenuItemMain #widget_4,
+#FrameworkMenuItemMain #btnbg,
+#FrameworkMenuItemMain #widget,
+#FrameworkMenuItemMain #widget_2,
+#FrameworkMenuItemMain #widget_3
+{
+  background-color:#151518;
+}
+ 
+#FrameworkMenu #star1,
+#FrameworkMenu #star2,
+#FrameworkMenu #star3,
+#FrameworkMenu #star4,
+#FrameworkMenu #star5,
+#FrameworkMenu #star6,
+#FrameworkMenu #star7,
+#FrameworkMenu #star8,
+#FrameworkMenuItemSub #star1,
+#FrameworkMenuItemSub #star2,
+#FrameworkMenuItemSub #star3,
+#FrameworkMenuItemSub #star4,
+#FrameworkMenuItemSub #star5,
+#FrameworkMenuItemSub #star6,
+#FrameworkMenuItemSub #star7,
+#FrameworkMenuItemSub #star8{
+  image: url(bin/images/icon_star.png);
+}
+
+#JPACS #btn_add_file{
+  background-image: url(bin/images/load_file.png);
+}
+
+#JPACS #btn_add_dicom{
+  background-image: url(bin/images/load_dicom.png);
+}
+
+#JPACS #btn_add_save{
+  background-image: url(bin/images/load_save.png);
+}
+
+#JPACS #widget,
+#JPACS #widget_2{
+  border: 1px solid #151518;
+}
+
+#ColorUnitList #widget_2
+{
+  background-color:transparent;
+}
+
+#FrameworkMenu #listWidget::item { 
+  border: 2px solid #2B2B2B; 
+  border-radius:8px;
+}
+
+#FrameworkMenu #listWidget::item:selected { 
+  border: 2px solid #2B649A; 
+  border-radius:8px;
+}
+
+#JProgressItem #widget,
+#JProgressItem #bg{
+  background-color:#000000;
+}
+
+#JLoginContainer #label_7,
+#JLoginContainer #label_8
+{
+  border-image: url(bin/images/logo.png);
+  background-repeat: no-repeat;
+}
+
+#JLoginContainer #l_cb_show_password{
+  image: url(bin/images/icon_invisible.png);
+}
+
+#JLoginContainer #l_cb_show_password:checked{
+  image: url(bin/images/icon_visible.png);
+}
+
+#PayDialog2 #btnPayLife,
+#PayDialog2 #btnPayYear,
+#PayDialog2 #btnPayMonth{
+  background-color: transparent;
+  image: url(bin/images/vipbtn1.png);
+}
+
+#PayDialog2 #btnPayLife:checked,
+#PayDialog2 #btnPayYear:checked,
+#PayDialog2 #btnPayMonth:checked{
+  background-color: transparent;
+  image: url(bin/images/vipbtn2.png);
+}
+
+#UnitTeachingIntro2 #lblIcon
+{
+  image:url(bin/images/icon_teacher.png);
+}
+#UnitCTHeadVolumes #btnRegister,
+#UnitCTMask #pushButton_10,
+#UnitCTMask #pushButton_11
+{
+  background-color: #2D3745;
+  background-origin: content;
+  background-position: left;
+  padding-left: 2px;
+  background-repeat: no-repeat;
+  background-image: url(bin/images/btn_vip2.png);
+
+  text-align: right;
+  font-size: 14px;
+  color: #FFFFFF;
+  border-radius:4px;
+  padding-right: 10px;
+}
+
+#UnitCTHeadVolumes #btnRegister:hover,
+#UnitCTMask #pushButton_10:hover,
+#UnitCTMask #pushButton_11:hover
+{
+  background-color: #243B5A;
+}
+#UnitCTHeadVolumes #btnRegister
+{  
+  padding-left: 55px;
+  padding-right: 48px;
+}
+#UnitCreatePunctureGuide #icon_vip
+{
+  background-image: url(bin/images/btn_vip2.png);
+}
+
+#UnitTeachingVideo2 #lblArrow
+{
+  background-image: url(bin/images/icon_arrow_buy.png);
+}
+
+#PayVipTips2 #label
+{
+  border-image: url(bin/images/btn_vip.png);
+}
+
+#UnitCTTumor #pushButton_9
+{
+  background-color: transparent;
+  background-origin: content;
+  background-position: left;
+  padding-left: 2px;
+  background-repeat: no-repeat;
+  qproperty-icon: url(bin/images/btn_vip2.png);
+  border-image:url(bin/images/turmo_btn20.png);
+  text-align: right;
+  font-size: 14px;
+  color: #FFFFFF;
+  border-radius:4px;
+  padding-right: 10px;
+}
+
+#UnitCTTumor #pushButton_9:checked
+{
+  border-image:url(bin/images/turmo_btn21.png);
+}
+#UnitCTTumor #pushButton_2
+{
+  background-color: transparent;
+  border-image:url(bin/images/turmo_btn10.png);
+}
+
+#UnitCTTumor #pushButton_2:checked
+{
+  border-image:url(bin/images/turmo_btn11.png);
+}

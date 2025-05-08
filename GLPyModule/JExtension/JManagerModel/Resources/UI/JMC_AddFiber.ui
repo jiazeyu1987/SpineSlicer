@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>JMC_PunctureGuide</class>
+ <widget class="qMRMLWidget" name="JMC_PunctureGuide">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>470</width>
+    <height>125</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-140</x>
+     <y>0</y>
+     <width>611</width>
+     <height>130</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(31, 31, 31);</string>
+   </property>
+   <widget class="QLabel" name="lblName">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>45</y>
+      <width>80</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Source Han Sans CN-Regular, Source Han Sans CN</family>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>透明度:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn2D">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>10</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="ctkSliderWidget" name="sliderOpacity" native="true">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>50</y>
+      <width>271</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="decimals" stdset="0">
+     <number>0</number>
+    </property>
+    <property name="singleStep" stdset="0">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="pageStep" stdset="0">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="minimum" stdset="0">
+     <double>0.000000000000000</double>
+    </property>
+    <property name="maximum" stdset="0">
+     <double>100.000000000000000</double>
+    </property>
+    <property name="value" stdset="0">
+     <double>70.000000000000000</double>
+    </property>
+    <property name="suffix" stdset="0">
+     <string>%</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnColor">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>10</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblName_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>50</y>
+      <width>80</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Source Han Sans CN-Regular, Source Han Sans CN</family>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>3D透明度:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn3D">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>10</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblName_3">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>80</y>
+      <width>80</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Source Han Sans CN-Regular, Source Han Sans CN</family>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>2D透明度:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="ctkSliderWidget" name="sliderOpacity2D" native="true">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>80</y>
+      <width>271</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="decimals" stdset="0">
+     <number>0</number>
+    </property>
+    <property name="singleStep" stdset="0">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="pageStep" stdset="0">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="minimum" stdset="0">
+     <double>0.000000000000000</double>
+    </property>
+    <property name="maximum" stdset="0">
+     <double>100.000000000000000</double>
+    </property>
+    <property name="value" stdset="0">
+     <double>70.000000000000000</double>
+    </property>
+    <property name="suffix" stdset="0">
+     <string>%</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDelete">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>10</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ctkSliderWidget</class>
+   <extends>QWidget</extends>
+   <header>ctkSliderWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

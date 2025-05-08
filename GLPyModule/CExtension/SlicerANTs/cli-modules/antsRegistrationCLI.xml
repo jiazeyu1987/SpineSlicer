@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<executable>
+  <category>Utilities</category>
+  <title>antsRegistrationCLI</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>https://github.com/netstim/SlicerANTs</documentation-url>
+  <license>Slicer</license>
+  <contributor>Simon Oxenford (Netstim Berlin)</contributor>
+  <acknowledgements>This work was partially funded by NIH grant NXNNXXNNNNNN-NNXN</acknowledgements>
+  
+  <parameters>
+    <label>Command</label>
+    <description><![CDATA[ANTs Registration Command]]></description>
+    <string>
+      <name>antsCommand</name>
+      <label>ANTs Registration Command</label>
+      <channel>input</channel>
+      <longflag>--antsCommand</longflag>
+      <description><![CDATA[specify the antsRegistration command]]></description>
+    </string>
+  </parameters>
+
+  <parameters>
+    <label>Input Volumes</label>
+    <image>
+      <name>inputVolume01</name>
+      <label>Input Volume #1</label>
+      <channel>input</channel>
+      <longflag>--inputVolume01</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume02</name>
+      <label>Input Volume #2</label>
+      <channel>input</channel>
+      <longflag>--inputVolume02</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume03</name>
+      <label>Input Volume #3</label>
+      <channel>input</channel>
+      <longflag>--inputVolume03</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume04</name>
+      <label>Input Volume #4</label>
+      <channel>input</channel>
+      <longflag>--inputVolume04</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume05</name>
+      <label>Input Volume #5</label>
+      <channel>input</channel>
+      <longflag>--inputVolume05</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume06</name>
+      <label>Input Volume #6</label>
+      <channel>input</channel>
+      <longflag>--inputVolume06</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume07</name>
+      <label>Input Volume #7</label>
+      <channel>input</channel>
+      <longflag>--inputVolume07</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume08</name>
+      <label>Input Volume #8</label>
+      <channel>input</channel>
+      <longflag>--inputVolume08</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume09</name>
+      <label>Input Volume #9</label>
+      <channel>input</channel>
+      <longflag>--inputVolume09</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume10</name>
+      <label>Input Volume #10</label>
+      <channel>input</channel>
+      <longflag>--inputVolume10</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume11</name>
+      <label>Input Volume #11</label>
+      <channel>input</channel>
+      <longflag>--inputVolume11</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume12</name>
+      <label>Input Volume #12</label>
+      <channel>input</channel>
+      <longflag>--inputVolume12</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume13</name>
+      <label>Input Volume #13</label>
+      <channel>input</channel>
+      <longflag>--inputVolume13</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume14</name>
+      <label>Input Volume #14</label>
+      <channel>input</channel>
+      <longflag>--inputVolume14</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume15</name>
+      <label>Input Volume #15</label>
+      <channel>input</channel>
+      <longflag>--inputVolume15</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume16</name>
+      <label>Input Volume #16</label>
+      <channel>input</channel>
+      <longflag>--inputVolume16</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume17</name>
+      <label>Input Volume #17</label>
+      <channel>input</channel>
+      <longflag>--inputVolume17</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume18</name>
+      <label>Input Volume #18</label>
+      <channel>input</channel>
+      <longflag>--inputVolume18</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume19</name>
+      <label>Input Volume #19</label>
+      <channel>input</channel>
+      <longflag>--inputVolume19</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+    <image>
+      <name>inputVolume20</name>
+      <label>Input Volume #20</label>
+      <channel>input</channel>
+      <longflag>--inputVolume20</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </image>
+  </parameters>
+
+  <parameters>
+    <label>Input Transform</label>
+    <transform>
+      <name>inputTransform</name>
+      <label>Input Transform</label>
+      <channel>input</channel>
+      <longflag>--inputTransform</longflag>
+      <description><![CDATA[Input Volume.]]></description>
+    </transform>
+  </parameters>
+
+  <parameters>
+    <label>Output</label>
+    <image>
+      <name>outputVolume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <longflag>--outputVolume</longflag>
+      <description><![CDATA[Output Volume.]]></description>
+    </image>
+    <transform fileExtensions="Composite.h5">
+      <name>outputCompositeTransform</name>
+      <label>Output Composite Transform</label>
+      <channel>output</channel>
+      <longflag>--outputCompositeTransform</longflag>
+      <description><![CDATA[Output composite transform. If using composite transform don't specify a displacement field]]></description>
+    </transform>
+    <transform fileExtensions=".nrrd">
+      <name>outputDisplacementField</name>
+      <label>Output Displacement Field</label>
+      <channel>output</channel>
+      <longflag>--outputDisplacementField</longflag>
+      <description><![CDATA[Output displacement field. If using displacement field don't specify a composite transform]]></description>
+    </transform>
+  </parameters>
+
+  <parameters>
+    <label>Settings</label>
+    <boolean>
+      <name>useFloat</name>
+      <label>Use float</label>
+      <longflag>--useFloat</longflag> 
+      <default>true</default>
+    </boolean>
+  </parameters>
+
+</executable>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UnitTeachingVideo</class>
+ <widget class="qMRMLWidget" name="UnitTeachingVideo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>2002222</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="UnitTeachingVideo2" native="true">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QLabel" name="lblQrcode">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>43</y>
+        <width>180</width>
+        <height>180</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>238</y>
+        <width>700</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>使用抖音扫一扫，查看教学视频</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>332</y>
+        <width>700</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>教学视频中使用的设备，可通过下方按钮购买</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblArrow">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>360</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBuy">
+      <property name="geometry">
+       <rect>
+        <x>262</x>
+        <y>391</y>
+        <width>176</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>购买同款设备</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

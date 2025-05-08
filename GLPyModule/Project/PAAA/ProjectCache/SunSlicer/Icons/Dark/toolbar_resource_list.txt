@@ -1,0 +1,12 @@
+tool_layout.png:		更改布局
+btn_all_tube_slice.png:		截面
+tool_layout1.png:		矢状面
+tool_layout2.png:		冠状面
+tool_layout3.png:		水平面
+tool_screen_shot.png:		截图
+tool_line.png:		测量长度的工具
+tool_angle.png:		测量角度的工具
+tool_curve.png:		测量长度的工具,左键选择曲线,右键取消
+tool_area.png:		测量面积的工具
+tool_probe.png:		
+tool_reset.png:		将所有窗口的显示重置为初始状态

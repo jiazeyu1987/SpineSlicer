@@ -1,0 +1,6 @@
+FinishCreateTumor = 812832
+FinishCreateChannel = 812833
+show_volume_rendering=812834
+OnFinishCreateLoadTeachingDICOM=812835
+AddScore=812836
+ChangeMainVolume=812837

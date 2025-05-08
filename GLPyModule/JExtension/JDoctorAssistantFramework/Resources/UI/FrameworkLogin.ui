@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>JLoginOrigin</class>
+ <widget class="qMRMLWidget" name="JLoginOrigin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1119</width>
+    <height>927</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="JLoginContainer" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>Tab 1</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0,0">
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>95</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="r_error_text_2">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 0, 4);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="BtnReturnToRegister">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>注册</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <item row="2" column="1">
+             <widget class="QWidget" name="widget_2" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>700</width>
+                <height>400</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <widget class="QLineEdit" name="l_username">
+               <property name="geometry">
+                <rect>
+                 <x>220</x>
+                 <y>125</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="l_cb_show_password">
+               <property name="geometry">
+                <rect>
+                 <x>496</x>
+                 <y>173</y>
+                 <width>24</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="l_cb_remember_password">
+               <property name="geometry">
+                <rect>
+                 <x>220</x>
+                 <y>213</y>
+                 <width>91</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>记住密码</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label">
+               <property name="geometry">
+                <rect>
+                 <x>160</x>
+                 <y>125</y>
+                 <width>50</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>用户名:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+              <widget class="QWidget" name="groupRead" native="true">
+               <property name="geometry">
+                <rect>
+                 <x>220</x>
+                 <y>251</y>
+                 <width>291</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkUserAgreement">
+                  <property name="text">
+                   <string>阅读并同意</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnUserAgreement">
+                  <property name="styleSheet">
+                   <string notr="true">border-radius: 0px;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #80AAFF;</string>
+                  </property>
+                  <property name="text">
+                   <string>服务协议</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>和</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnPrivacyPolicy">
+                  <property name="styleSheet">
+                   <string notr="true">border-radius: 0px;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #80AAFF;</string>
+                  </property>
+                  <property name="text">
+                   <string>隐私政策</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_18">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QLineEdit" name="l_password">
+               <property name="geometry">
+                <rect>
+                 <x>220</x>
+                 <y>173</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_2">
+               <property name="geometry">
+                <rect>
+                 <x>160</x>
+                 <y>173</y>
+                 <width>50</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>密  码:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="BtnDoLogin">
+               <property name="geometry">
+                <rect>
+                 <x>220</x>
+                 <y>320</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>登录</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_7">
+               <property name="geometry">
+                <rect>
+                 <x>221</x>
+                 <y>40</y>
+                 <width>258</width>
+                 <height>40</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <spacer name="verticalSpacer_8">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Expanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>10</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="1">
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="3">
+             <spacer name="horizontalSpacer_10">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="0">
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_2">
+         <attribute name="title">
+          <string>Tab 2</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,1,0,0">
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>95</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="r_error_text">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 0, 4);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="BtnReturnToLogin">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>登录</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>314</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <item row="0" column="2">
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="0">
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="1">
+             <widget class="QWidget" name="widget_3" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>700</width>
+                <height>400</height>
+               </size>
+              </property>
+              <widget class="QLineEdit" name="r_password_1">
+               <property name="geometry">
+                <rect>
+                 <x>219</x>
+                 <y>123</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
+               </property>
+              </widget>
+              <widget class="QLineEdit" name="r_username">
+               <property name="geometry">
+                <rect>
+                 <x>219</x>
+                 <y>75</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_4">
+               <property name="geometry">
+                <rect>
+                 <x>159</x>
+                 <y>75</y>
+                 <width>50</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>用户名:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_5">
+               <property name="geometry">
+                <rect>
+                 <x>139</x>
+                 <y>171</y>
+                 <width>70</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>重复密码:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+              <widget class="QLineEdit" name="r_password_2">
+               <property name="geometry">
+                <rect>
+                 <x>219</x>
+                 <y>171</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="BtnDoRegister">
+               <property name="geometry">
+                <rect>
+                 <x>219</x>
+                 <y>325</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>注册</string>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_3">
+               <property name="geometry">
+                <rect>
+                 <x>159</x>
+                 <y>123</y>
+                 <width>50</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>密  码:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_8">
+               <property name="geometry">
+                <rect>
+                 <x>220</x>
+                 <y>10</y>
+                 <width>258</width>
+                 <height>40</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_10">
+               <property name="geometry">
+                <rect>
+                 <x>139</x>
+                 <y>220</y>
+                 <width>70</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>手机号:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+              <widget class="QLineEdit" name="r_phone">
+               <property name="geometry">
+                <rect>
+                 <x>219</x>
+                 <y>220</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="maxLength">
+                <number>11</number>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Normal</enum>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_11">
+               <property name="geometry">
+                <rect>
+                 <x>139</x>
+                 <y>270</y>
+                 <width>70</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>地址:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+              <widget class="QLineEdit" name="r_address">
+               <property name="geometry">
+                <rect>
+                 <x>219</x>
+                 <y>270</y>
+                 <width>260</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <property name="maxLength">
+                <number>110</number>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Normal</enum>
+               </property>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>314</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

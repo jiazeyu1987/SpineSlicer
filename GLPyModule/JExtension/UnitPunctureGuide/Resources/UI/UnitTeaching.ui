@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UnitTeaching</class>
+ <widget class="qMRMLWidget" name="UnitTeaching">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>962</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>40</y>
+        <width>100</width>
+        <height>82</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>82</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>82</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <widget class="QPushButton" name="btnDicom">
+       <property name="geometry">
+        <rect>
+         <x>26</x>
+         <y>0</y>
+         <width>48</width>
+         <height>48</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>56</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font:14px;</string>
+       </property>
+       <property name="text">
+        <string>穿刺导板数据</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_3" native="true">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>40</y>
+        <width>100</width>
+        <height>82</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>82</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>82</height>
+       </size>
+      </property>
+      <widget class="QPushButton" name="btnAnaly">
+       <property name="geometry">
+        <rect>
+         <x>26</x>
+         <y>0</y>
+         <width>48</width>
+         <height>48</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>56</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font:14px;</string>
+       </property>
+       <property name="text">
+        <string>脑区分割数据</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>40</y>
+        <width>100</width>
+        <height>82</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>82</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>82</height>
+       </size>
+      </property>
+      <widget class="QPushButton" name="btnVideo">
+       <property name="geometry">
+        <rect>
+         <x>26</x>
+         <y>0</y>
+         <width>48</width>
+         <height>48</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>56</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font:14px;</string>
+       </property>
+       <property name="text">
+        <string>教学视频</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="btnBuy">
+      <property name="geometry">
+       <rect>
+        <x>307</x>
+        <y>226</y>
+        <width>186</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>186</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>186</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="text">
+       <string notr="true">采购视频中设备</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>780</width>
+        <height>1</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>542</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>个人简介：</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnThesis">
+      <property name="geometry">
+       <rect>
+        <x>524</x>
+        <y>536</y>
+        <width>120</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看论文</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnPatent">
+      <property name="geometry">
+       <rect>
+        <x>668</x>
+        <y>536</y>
+        <width>120</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看专利</string>
+      </property>
+     </widget>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>28</x>
+        <y>584</y>
+        <width>748</width>
+        <height>316</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>746</width>
+         <height>314</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblContent">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>572</y>
+        <width>772</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #2B2B2B;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QWidget" name="info_widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>310</y>
+        <width>771</width>
+        <height>211</height>
+       </rect>
+      </property>
+     </widget>
+     <zorder>label_7</zorder>
+     <zorder>widget_2</zorder>
+     <zorder>widget_3</zorder>
+     <zorder>widget_4</zorder>
+     <zorder>btnBuy</zorder>
+     <zorder>label</zorder>
+     <zorder>label_6</zorder>
+     <zorder>btnThesis</zorder>
+     <zorder>btnPatent</zorder>
+     <zorder>scrollArea</zorder>
+     <zorder>info_widget</zorder>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

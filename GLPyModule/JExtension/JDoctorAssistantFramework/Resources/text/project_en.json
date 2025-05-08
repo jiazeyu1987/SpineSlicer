@@ -1,0 +1,251 @@
+[
+    {
+        "info_name": "Puncture guides",
+        "des":"Use 3D printing to simulate the puncture",
+        "icon": "menu_icon1.png",
+        "open":1,
+        "default":1,
+        "ptype":1,
+        "display":1,
+        "versions": {
+            "basic5": {
+                "name": "Introduce",
+                "hard": 1,
+                "auth": 1,
+                "video":"1.avi",
+                "hide_open":1,
+                "display_type":1,
+                "default": 1,
+                "extension_base": "UnitPunctureGuide",
+                "gif": "1.gif",
+                "pic": "version6.png",
+                "info": "知识点\n1.融合真实头部数据的头模DICOM。\n2.调整MPR。\n3.调整窗宽窗位\n4.体绘制的预设\n5.通过绘制创建血肿"
+            },
+            "basic6": {
+                "name": "Teach",
+                "hard": 2,
+                "auth": 1,
+                "auto_enter":1,
+                "display_score":1,
+                "extension_base": "UnitPunctureGuide",
+                "pic": "version6.png",
+                "powerby": "MedAI",
+                "info": "1.Learn to simulate DICOM\n2.Learn to remove the DICOM backplane of the head\n3.Learn to set grayscale and MPR\n4.Learn to segment the hematoma"
+            },
+            "basic7": {
+                "name": "Hospital Research",
+                "hard": 3,
+                "auth": 1,
+                "extension_base": "UnitPunctureGuide",
+                "pic": "version7.png",
+                "info": "1.Learn to simulate DICOM\n2.Learn to remove the DICOM backplate of the head\n3.Learn to set grayscale and MPR\n4.Intracerebral hemorrhage 3D printed guide plate for precise puncture surgical planning",
+                "powerby": "赵成乐",
+                "artical": "3D-slicer辅导3D...在脑出血穿刺引流术中的应用_周翔"
+            },
+            "basic8": {
+                "name": "New Hospital Research",
+                "hard": 4,
+                "auth": 1,
+                "extension_base": "UnitPunctureGuide",
+                "pic": "version7.png",
+                "info": "1.Learn to simulate DICOM\n2.Learn to remove the DICOM backplate of the head\n3.Learn to set grayscale and MPR\n4.Intracerebral hemorrhage 3D printed guide plate for precise puncture surgical planning",
+                "powerby": "赵成乐",
+                "artical": "3D-slicer辅导3D...在脑出血穿刺引流术中的应用_周翔"
+            }
+        }
+    },
+    {
+        "info_name": "心脏穿刺",
+        "des":"使用3D打印的方式来模拟神外穿刺",
+        "open":0,
+        "ptype":1,
+        "display":0,
+        "icon": "menu_icon3.png",
+        "versions": {
+            "basic": {
+                "name": "1初级版本",
+                "hard": 41,
+                "auth": 1,
+                "extension_base": "UnitPunctureGuide1",
+                "pic": "version1.png",
+                "info": "aaaaaaaaa"
+            },
+            "basic2": {
+                "name": "1初级版本2",
+                "hard": 42,
+                "auth": 1,
+                "extension_base": "UnitPunctureGuide1",
+                "pic": "version1.png",
+                "info": "bbbbbbbbbbb"
+            }
+        }
+    },
+   
+    {
+        "info_name": "Brain Protective Caps",
+        "des":"Use 3D printing to make protective caps",
+        "open":1,
+        "display":1,
+        "ptype":1,
+        "icon": "menu_icon6.png",
+        "versions": {
+            "basic5": {
+                "name": "Introduce",
+                "hard": 21,
+                "auth": 1,
+                "auto_enter":1,
+                "video":"naobaohumao.avi",
+                "hide_open":1,                
+                "default": 1,
+                "display_type":1,
+                "extension_base": "UnitProtectionHat",
+                "gif": "baohumao.gif",
+                "pic": "version6.png",
+                "info": "知识点\n1.融合真实头部数据的头模DICOM。\n2.调整MPR。\n3.调整窗宽窗位\n4.体绘制的预设\n5.通过绘制创建血肿"
+            },
+           "basic6": {
+                "name": "Teach",
+                "hard": 22,
+                "auth": 1,
+                "display_score":1,
+                "auto_enter":1,
+                "extension_base": "UnitProtectionHat",
+                "pic": "baohumao01.png",
+                "powerby": "MedAI",
+                "info": "知识点\n1.通过分析CT扫描结果，学生可以深入了解头颅结构。\n2.掌握将CT扫描数据转换为3D模型的技术，包括如何使用软件进行数据切片、重建和编辑。\n3.掌握使用3D打印颅骨模型进行手术前的模拟训练，提高对手术过程的理解和准备\n4.理解3D打印技术在医疗领域的应用，学习如何操作3D打印机和选择合适的打印材料\n5.掌握如何从3D模型到实际打印对象的全过程，包括后处理和质量评估"
+            }
+            ,
+           "basic7": {
+                "name": "Hospital Research",
+                "hard": 23,
+                "auth": 1,
+                "extension_base": "UnitProtectionHat",
+                "pic": "baohumao02.png",
+                "powerby": "赵成乐",
+                "info": "知识点\n1.通过分析CT扫描结果，学生可以深入了解头颅结构。\n2.掌握将CT扫描数据转换为3D模型的技术，包括如何使用软件进行数据切片、重建和编辑。\n3.掌握使用3D打印颅骨模型进行手术前的模拟训练，提高对手术过程的理解和准备\n4.理解3D打印技术在医疗领域的应用，学习如何操作3D打印机和选择合适的打印材料\n5.掌握如何从3D模型到实际打印对象的全过程，包括后处理和质量评估"
+            }
+        }
+    },
+    {
+        "info_name": "Skull Repair",
+        "des":"Repair of broken skulls using symmetrical registration",
+        "open":1,
+        "ptype":1,
+        "display":1,
+        "icon": "menu_icon4.png",
+        "versions": {
+            "basic5": {
+                "name": "Introduce",
+                "hard": 11,
+                "auth": 1,
+                "video":"luguxiufu.avi",
+                "default": 1,
+                "hide_open":1,
+                "display_type":1,
+                "extension_base": "UnitRepairSkull",
+                "gif": "3.gif",
+                "pic": "version6.png",
+                "info": "知识点\n1.通过分析CT扫描结果，学生可以深入了解头颅结构。\n2.掌握将CT扫描数据转换为3D模型的技术，包括如何使用软件进行数据切片、重建和编辑。\n3.掌握使用3D打印颅骨模型进行手术前的模拟训练，提高对手术过程的理解和准备\n4.理解3D打印技术在医疗领域的应用，学习如何操作3D打印机和选择合适的打印材料\n5.掌握如何从3D模型到实际打印对象的全过程，包括后处理和质量评估"
+            },
+           "basic6": {
+                "name": "Teach",
+                "hard": 12,
+                "auth": 1,
+                "display_score":1,
+                "auto_enter":1,
+                "extension_base": "UnitRepairSkull",
+                "pic": "luguxiufu1.png",
+                "powerby": "MedAI",
+                "info": "知识点\n1.通过分析CT扫描结果，学生可以深入了解头颅结构。\n2.掌握将CT扫描数据转换为3D模型的技术，包括如何使用软件进行数据切片、重建和编辑。\n3.掌握使用3D打印颅骨模型进行手术前的模拟训练，提高对手术过程的理解和准备\n4.理解3D打印技术在医疗领域的应用，学习如何操作3D打印机和选择合适的打印材料\n5.掌握如何从3D模型到实际打印对象的全过程，包括后处理和质量评估"
+            }
+            ,
+           "basic7": {
+                "name": "Hospital Research",
+                "hard": 13,
+                "auth": 1,
+                "extension_base": "UnitRepairSkull",
+                "pic": "luguxiufu2.png",
+                "powerby": "赵成乐",
+                "info": "知识点\n1.通过分析CT扫描结果，学生可以深入了解头颅结构。\n2.掌握将CT扫描数据转换为3D模型的技术，包括如何使用软件进行数据切片、重建和编辑。\n3.掌握使用3D打印颅骨模型进行手术前的模拟训练，提高对手术过程的理解和准备\n4.理解3D打印技术在医疗领域的应用，学习如何操作3D打印机和选择合适的打印材料\n5.掌握如何从3D模型到实际打印对象的全过程，包括后处理和质量评估"
+            }
+        }
+    },
+    {
+        "info_name": "Locating plates",
+        "des":"3D printing is used to assist in craniotomy, TMS and other simulated positioning",
+        "open":1,
+        "display":1,
+        "ptype":2,
+        "default":1,
+        "icon": "menu_icon5.png",
+        "versions": {
+           "basic5": {
+                "name": "Introduce",
+                "hard": 31,
+                "auth": 1,
+                "video":"2.avi",
+                "hide_open":0,                
+                "default": 1,
+                "display_type":1,
+                "extension_base": "UnitPanelGuide",
+                "gif": "1.gif",
+                "pic": "version6.png",
+                "info": "知识点\n1.融合真实头部数据的头模DICOM。\n2.调整MPR。\n3.调整窗宽窗位\n4.体绘制的预设\n5.通过绘制创建血肿"
+            },
+            "basic6": {
+                 "name": "Teach",
+                 "hard": 32,
+                 "auth": 1,
+                 "display_score":1,
+                 "auto_enter":1,
+                 "extension_base": "UnitPanelGuide",
+                 "pic": "luguxiufu1.png",
+                 "powerby": "MedAI",
+                 "info": "知识点\n1.通过分析CT扫描结果，学生可以深入了解头颅结构。\n2.掌握将CT扫描数据转换为3D模型的技术，包括如何使用软件进行数据切片、重建和编辑。\n3.掌握使用3D打印颅骨模型进行手术前的模拟训练，提高对手术过程的理解和准备\n4.理解3D打印技术在医疗领域的应用，学习如何操作3D打印机和选择合适的打印材料\n5.掌握如何从3D模型到实际打印对象的全过程，包括后处理和质量评估"
+             },
+           "basic7": {
+                "name": "Hospital Research",
+                "hard": 33,
+                "auth": 1,
+                "extension_base": "UnitPanelGuide",
+                "pic": "version6.png",
+                "powerby": "厦门医影",
+                "info": "1.用3D打印的方式为开颅定位"
+            }
+        }
+    },
+    {
+        "info_name": "Stereotactic",
+        "des":"A headstock is used to achieve stereotactic orientation",
+        "open":0,
+        "display":1,
+        "ptype":2,
+        "icon": "menu_icon2.png",
+        "versions": {
+            "basic": {
+                "name": "1初级版本",
+                "hard": 51,
+                "auth": 1,
+                "extension_base": "UnitPunctureGuide1",
+                "pic": "version1.png",
+                "info": "aaaaaaaaa"
+            },
+            "basic2": {
+                "name": "1初级版本2",
+                "hard": 52,
+                "auth": 1,
+                "extension_base": "UnitPunctureGuide1",
+                "pic": "version1.png",
+                "info": "bbbbbbbbbbb"
+            },
+            "basic3": {
+                "name": "1初级版本3",
+                "hard": 53,
+                "auth": 1,
+                "extension_base": "UnitPunctureGuide1",
+                "pic": "version1.png",
+                "info": "ccccccccccc"
+            }
+        }
+    }
+]

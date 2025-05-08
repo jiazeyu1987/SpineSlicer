@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>JVC_Normal</class>
+ <widget class="qMRMLWidget" name="JVC_Normal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>509</width>
+    <height>357</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <property name="leftMargin">
+    <number>4</number>
+   </property>
+   <property name="topMargin">
+    <number>4</number>
+   </property>
+   <property name="rightMargin">
+    <number>4</number>
+   </property>
+   <property name="bottomMargin">
+    <number>4</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>12</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_4" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_16">
+         <item>
+          <widget class="QLineEdit" name="lblName">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>颅骨碎片</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_export">
+           <property name="minimumSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnColor">
+           <property name="minimumSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="lblImage">
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <item>
+             <property name="text">
+              <string>无</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>平面切割</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>膨胀</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>缩小</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>镜像</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>合成</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>镂空</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>转分割</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="widget_3" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="1,5">
+               <item>
+                <widget class="QLabel" name="lblName_3">
+                 <property name="font">
+                  <font>
+                   <family>Source Han Sans CN-Regular, Source Han Sans CN</family>
+                   <weight>50</weight>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="text">
+                  <string>2D:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="ctkSliderWidget" name="sliderOpacity2D" native="true">
+                 <property name="decimals" stdset="0">
+                  <number>0</number>
+                 </property>
+                 <property name="singleStep" stdset="0">
+                  <double>1.000000000000000</double>
+                 </property>
+                 <property name="pageStep" stdset="0">
+                  <double>1.000000000000000</double>
+                 </property>
+                 <property name="minimum" stdset="0">
+                  <double>0.000000000000000</double>
+                 </property>
+                 <property name="maximum" stdset="0">
+                  <double>100.000000000000000</double>
+                 </property>
+                 <property name="value" stdset="0">
+                  <double>70.000000000000000</double>
+                 </property>
+                 <property name="suffix" stdset="0">
+                  <string>%</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="1,5">
+               <item>
+                <widget class="QLabel" name="lblName_2">
+                 <property name="font">
+                  <font>
+                   <family>Source Han Sans CN-Regular, Source Han Sans CN</family>
+                   <weight>50</weight>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="text">
+                  <string>3D:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="ctkSliderWidget" name="sliderOpacity" native="true">
+                 <property name="decimals" stdset="0">
+                  <number>0</number>
+                 </property>
+                 <property name="singleStep" stdset="0">
+                  <double>1.000000000000000</double>
+                 </property>
+                 <property name="pageStep" stdset="0">
+                  <double>1.000000000000000</double>
+                 </property>
+                 <property name="minimum" stdset="0">
+                  <double>0.000000000000000</double>
+                 </property>
+                 <property name="maximum" stdset="0">
+                  <double>100.000000000000000</double>
+                 </property>
+                 <property name="value" stdset="0">
+                  <double>70.000000000000000</double>
+                 </property>
+                 <property name="suffix" stdset="0">
+                  <string>%</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="btnModify">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="btnDelete">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="btn2D">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="btn3D">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="currentIndex">
+         <number>10</number>
+        </property>
+        <widget class="QWidget" name="tab_6">
+         <attribute name="title">
+          <string>页</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>1</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QComboBox" name="plane_cut_cb">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>无</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>笔刷</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>钢笔</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>删除</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>平滑</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>膨胀</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>缩小</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>阈值</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>镂空</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>岛</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="plane_cut_apply">
+              <property name="text">
+               <string>确定</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_4">
+         <attribute name="title">
+          <string>2</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4" stretch="3">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,5,1">
+              <item>
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>膨胀大小:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="qMRMLLinearTransformSlider" name="margin_out_slider" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="decimals" stdset="0">
+                 <number>0</number>
+                </property>
+                <property name="minimum" stdset="0">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="maximum" stdset="0">
+                 <double>6.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="margin_out_apply">
+                <property name="text">
+                 <string>确定</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_3">
+         <attribute name="title">
+          <string>3</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,5,1">
+            <item>
+             <widget class="QLabel" name="label_13">
+              <property name="text">
+               <string>缩小:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="qMRMLLinearTransformSlider" name="margin_in_slider" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="decimals" stdset="0">
+               <number>0</number>
+              </property>
+              <property name="minimum" stdset="0">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="maximum" stdset="0">
+               <double>6.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="margin_in_apply">
+              <property name="text">
+               <string>确定</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_2">
+         <attribute name="title">
+          <string>4</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QComboBox" name="mirror_cb">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>无</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>笔刷</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>钢笔</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>删除</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>平滑</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>膨胀</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>缩小</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>阈值</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>镂空</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>岛</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="mirror_apply">
+              <property name="text">
+               <string>确定</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_5">
+         <attribute name="title">
+          <string>5</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QWidget" name="widget_2" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <spacer name="horizontalSpacer_5">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QComboBox" name="combine_cb">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>无</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>笔刷</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>钢笔</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>删除</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>平滑</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>膨胀</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>缩小</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>阈值</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>镂空</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>岛</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="combine_apply">
+                 <property name="text">
+                  <string>确定</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_6">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_7">
+         <attribute name="title">
+          <string>6预设</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="1,5,1">
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>大小:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="qMRMLLinearTransformSlider" name="hollow_slider" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="decimals" stdset="0">
+               <number>0</number>
+              </property>
+              <property name="minimum" stdset="0">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="maximum" stdset="0">
+               <double>6.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="hollow_apply">
+              <property name="text">
+               <string>确定</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_9">
+         <attribute name="title">
+          <string>7</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="convert_segment_apply">
+            <property name="text">
+             <string>确定</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_8">
+         <attribute name="title">
+          <string>详细信息</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <widget class="QPlainTextEdit" name="plainTextEdit"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_10">
+         <attribute name="title">
+          <string>页</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QTextEdit" name="textEdit">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Microsoft YaHei UI';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_11">
+         <attribute name="title">
+          <string>10普通导板</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_17">
+          <item>
+           <widget class="QPushButton" name="btn_puncture_combine">
+            <property name="text">
+             <string>合并</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_puncture_export">
+            <property name="text">
+             <string>导出</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ctkSliderWidget</class>
+   <extends>QWidget</extends>
+   <header>ctkSliderWidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLSliderWidget</class>
+   <extends>ctkSliderWidget</extends>
+   <header>qMRMLSliderWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLLinearTransformSlider</class>
+   <extends>qMRMLSliderWidget</extends>
+   <header>qMRMLLinearTransformSlider.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

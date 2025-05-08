@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Main</class>
+ <widget class="qMRMLWidget" name="Main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>433</width>
+    <height>340</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,1">
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>reload</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="ActiveVolumeLabel">
+       <property name="text">
+        <string>Active Volume: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="qMRMLNodeComboBox" name="ActiveVolumeNodeSelector" native="true">
+       <property name="nodeTypes" stdset="0">
+        <stringlist notr="true">
+         <string>vtkMRMLVolumeNode</string>
+        </stringlist>
+       </property>
+       <property name="addEnabled" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="renameEnabled" stdset="0">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="ActiveVolumeLabel_2">
+       <property name="text">
+        <string>Active Segment: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="qMRMLNodeComboBox" name="ActiveSegmentNodeSelector" native="true">
+       <property name="nodeTypes" stdset="0">
+        <stringlist notr="true">
+         <string>vtkMRMLSegmentationNode</string>
+        </stringlist>
+       </property>
+       <property name="addEnabled" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="renameEnabled" stdset="0">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn_start">
+     <property name="text">
+      <string>开始</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLNodeComboBox</class>
+   <extends>QWidget</extends>
+   <header>qMRMLNodeComboBox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

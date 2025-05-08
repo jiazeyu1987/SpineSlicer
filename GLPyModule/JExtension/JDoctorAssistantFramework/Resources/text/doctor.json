@@ -1,0 +1,168 @@
+{
+	"1": {
+		"doctor_id": "1",
+		"doctor_name": "范一峰",
+		"project":"UnitPunctureGuideBottom",
+		"analysis": "p1.mrb",
+		"dicom": "teaching_data.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,3,4,5"
+	},
+	"2": {
+		"doctor_id": "4",
+		"doctor_name": "MedAI老师",
+		"project":"UnitPunctureGuideBottom",
+		"analysis": "p6.mrb",
+		"dicom": "ModelWithBrain.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5"
+	},
+	"3": {
+		"doctor_id": "2",
+		"doctor_name": "赵成乐",
+		"project":"UnitPunctureGuideBottom",
+		"analysis": "p7.mrb",
+		"dicom": "teaching_data.nrrd",
+		"patent":"个人专利：一种颅骨穿刺导板套装",
+		"patent_en":"Patent: a cranial puncture guide set",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"4": {
+		"doctor_id": "2",
+		"doctor_name": "赵成乐",
+		"project":"UnitPunctureGuideBottom",
+		"analysis": "p7.mrb",
+		"dicom": "teaching_data.nrrd",
+		"patent":"个人专利：一种颅骨穿刺导板套装",
+		"patent_en":"Patent: a cranial puncture guide set",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"11": {
+		"doctor_id": "4",
+		"doctor_name": "MedAI老师",
+		"project":"UnitRepairSkullBottom",
+		"analysis": "luguxiufu1.mrb",
+		"dicom": "broken_skull.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5"
+	},
+	"13": {
+		"doctor_id": "2",
+		"doctor_name": "赵成乐",
+		"project":"UnitRepairSkullBottom",
+		"analysis": "luguxiufu2.mrb",
+		"dicom": "broken_skull.nrrd",
+		"patent":"个人专利：一种颅骨穿刺导板套装",
+		"patent_en":"Patent: a cranial puncture guide set",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"12": {
+		"doctor_id": "4",
+		"doctor_name": "MedAI老师",
+		"project":"UnitRepairSkullBottom",
+		"analysis": "p6.mrb",
+		"dicom": "broken_skull.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5"
+	},
+	"21": {
+		"doctor_id": "2",
+		"doctor_name": "赵成乐",
+		"project":"UnitProtectionHatBottom",
+		"analysis": "baohumao02.mrb",
+		"dicom": "broken_skull.nrrd",
+		"patent":"个人专利：一种颅骨穿刺导板套装",
+		"patent_en":"Patent: a cranial puncture guide set",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"22": {
+		"doctor_id": "3",
+		"doctor_name": "MedAI",
+		"project":"UnitProtectionHatBottom",
+		"analysis": "p1.mrb",
+		"dicom": "broken_skull.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"23": {
+		"doctor_id": "2",
+		"doctor_name": "赵成乐",
+		"project":"UnitProtectionHatBottom",
+		"analysis": "baohumao02.mrb",
+		"dicom": "broken_skull.nrrd",
+		"patent":"个人专利：一种颅骨穿刺导板套装",
+		"patent_en":"Patent: a cranial puncture guide set",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"31": {
+		"doctor_id": "2",
+		"doctor_name": "赵成乐",
+		"project":"UnitPanelGuideBottom",
+		"analysis": "baohumao02.mrb",
+		"dicom": "broken_skull.nrrd",
+		"patent":"个人专利：一种颅骨穿刺导板套装",
+		"patent_en":"Patent: a cranial puncture guide set",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"32": {
+		"doctor_id": "3",
+		"doctor_name": "MedAI",
+		"project":"UnitPanelGuideBottom",
+		"analysis": "p1.mrb",
+		"dicom": "broken_skull.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	},
+	"33": {
+		"doctor_id": "2",
+		"doctor_name": "赵成乐",
+		"project":"UnitPanelGuideBottom",
+		"analysis": "baohumao02.mrb",
+		"dicom": "broken_skull.nrrd",
+		"patent":"个人专利：一种颅骨穿刺导板套装",
+		"patent_en":"Patent: a cranial puncture guide set",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	}
+	,
+	"41": {
+		"doctor_id": "5",
+		"doctor_name": "定海神针",
+		"project":"UnitPanelGuideBottom",
+		"analysis": "p1.mrb",
+		"dicom": "broken_skull.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	}
+	,
+	"42": {
+		"doctor_id": "5",
+		"doctor_name": "定海神针",
+		"project":"UnitPanelGuideBottom",
+		"analysis": "p1.mrb",
+		"dicom": "broken_skull.nrrd",
+		"video": "video1.mp4",
+		"buy_url":"https://item.taobao.com/item.htm?spm=a21xtw.29178619.product_shelf.1.7d69176efJFBeo&id=816836679013&pisk=f8A9D8fGXDmivcMAFVHhi9TcO33HHCLN9h87iijghHKplhsGmGw1Re_Al-w_1E_fMHtm7GYjbndAA162IijGDsL222moZbYw7sWjq0coWrM-K_P1l5ZcAe_gNOWZebYw7izTc4vIZ-Q7IE3hCbg4zVNLFSR2iNG1E1Iv1r4C5OIWJYPbMm7aqgY6fSFAXNWTSFsLGSOpLDUd0GMz-i5GbeQ90bPN1tpXs6OsAj1WUHdAF_Hm7OTvpn5MOqw1VdxGOC98lSTd6MBcW9qtvgOwRQ5CKbgJRB-M7BL0lj_HqMTw1shSz1C1f6QeiDP1Dp9XsO54fmI29eO6HgRXZQejEujRoRgKJ-yVCwWlssP1KdEk4wIoWje439uFJg0KJ-yVCw7dqV3Y3-WE8&skuId=5684542242085",
+		"materials":"1,2,3,4,5,6,7"
+	}
+}

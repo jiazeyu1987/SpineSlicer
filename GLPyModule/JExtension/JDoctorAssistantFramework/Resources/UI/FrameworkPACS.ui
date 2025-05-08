@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>JPACS</class>
+ <widget class="qMRMLWidget" name="JPACS">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1254</width>
+    <height>1091</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>患者管理</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="avd" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,0,0">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QWidget" name="widgett13" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QWidget" name="widget_4" native="true">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>32</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>32</height>
+                </size>
+               </property>
+               <widget class="QPushButton" name="btn_add_file">
+                <property name="geometry">
+                 <rect>
+                  <x>28</x>
+                  <y>4</y>
+                  <width>24</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_3">
+                <property name="geometry">
+                 <rect>
+                  <x>64</x>
+                  <y>0</y>
+                  <width>70</width>
+                  <height>32</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>加载文件</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="btn_add_dicom">
+                <property name="geometry">
+                 <rect>
+                  <x>164</x>
+                  <y>4</y>
+                  <width>24</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_4">
+                <property name="geometry">
+                 <rect>
+                  <x>200</x>
+                  <y>0</y>
+                  <width>70</width>
+                  <height>32</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>加载Dicom</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="btn_add_save">
+                <property name="geometry">
+                 <rect>
+                  <x>306</x>
+                  <y>4</y>
+                  <width>24</width>
+                  <height>24</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_5">
+                <property name="geometry">
+                 <rect>
+                  <x>342</x>
+                  <y>0</y>
+                  <width>70</width>
+                  <height>32</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>加载存档</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="btn_add_file2">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>0</y>
+                  <width>110</width>
+                  <height>32</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:transparent;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="btn_add_dicom2">
+                <property name="geometry">
+                 <rect>
+                  <x>160</x>
+                  <y>0</y>
+                  <width>110</width>
+                  <height>32</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:transparent;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="btn_add_save2">
+                <property name="geometry">
+                 <rect>
+                  <x>300</x>
+                  <y>0</y>
+                  <width>110</width>
+                  <height>32</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:transparent;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="widgett1" native="true"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="widget" native="true">
+            <property name="maximumSize">
+             <size>
+              <width>187</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="leftMargin">
+              <number>2</number>
+             </property>
+             <property name="topMargin">
+              <number>2</number>
+             </property>
+             <property name="rightMargin">
+              <number>2</number>
+             </property>
+             <property name="bottomMargin">
+              <number>2</number>
+             </property>
+             <item>
+              <widget class="QTabWidget" name="tabWidget_3">
+               <property name="currentIndex">
+                <number>1</number>
+               </property>
+               <widget class="QWidget" name="tab_4">
+                <attribute name="title">
+                 <string>Tab 1</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                  <widget class="QLabel" name="label_2">
+                   <property name="font">
+                    <font>
+                     <pointsize>33</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(121, 121, 121);</string>
+                   </property>
+                   <property name="text">
+                    <string>暂无图像</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="tab_6">
+                <attribute name="title">
+                 <string>Tab 2</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_7" stretch="1">
+                 <item>
+                  <widget class="QListWidget" name="list_series">
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="verticalScrollMode">
+                    <enum>QAbstractItemView::ScrollPerPixel</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="widget_2" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1">
+             <property name="leftMargin">
+              <number>2</number>
+             </property>
+             <property name="topMargin">
+              <number>2</number>
+             </property>
+             <property name="rightMargin">
+              <number>2</number>
+             </property>
+             <property name="bottomMargin">
+              <number>2</number>
+             </property>
+             <item>
+              <widget class="QTabWidget" name="tabWidget_2">
+               <property name="currentIndex">
+                <number>1</number>
+               </property>
+               <widget class="QWidget" name="tab_3">
+                <attribute name="title">
+                 <string>Tab 1</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="font">
+                    <font>
+                     <pointsize>33</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(121, 121, 121);</string>
+                   </property>
+                   <property name="text">
+                    <string>暂无分析</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="tab_5">
+                <attribute name="title">
+                 <string>Tab 2</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1">
+                 <item>
+                  <widget class="QListWidget" name="listWidget">
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="verticalScrollMode">
+                    <enum>QAbstractItemView::ScrollPerPixel</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,37 @@
+{
+	"1": {
+		"name": "大道发生的撒旦法1",
+		"price": "￥9.99",
+		"icon":"material1.png"
+	},
+	"2": {		
+		"name": "大道发生的撒旦法2",
+		"price": "￥9.99",
+		"icon":"material1.png"
+	},
+	"3": {
+		"name": "大道发生的撒旦法3",
+		"price": "￥9.99",
+		"icon":"material1.png"
+	},
+	"4": {
+		"name": "大道发生的撒旦法4",
+		"price": "￥9.99",
+		"icon":"material2.png"
+	},
+	"5": {
+		"name": "大道发生的撒旦法5",
+		"price": "￥9.99",
+		"icon":"material2.png"
+	},
+	"6": {
+		"name": "大道发生的撒旦法6",
+		"price": "￥9.99",
+		"icon":"material3.png"
+	},
+	"7": {
+		"name": "大道发生的撒旦法7",
+		"price": "￥9.99",
+		"icon":"material3.png"
+	}
+}
