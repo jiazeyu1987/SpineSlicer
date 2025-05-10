@@ -1,0 +1,1 @@
+snake_case_functions = ('binomial_blur_image_filter', 'discrete_gaussian_image_filter', 'fft_discrete_gaussian_image_filter', 'mean_image_filter', 'median_image_filter', 'recursive_gaussian_image_filter', 'smoothing_recursive_gaussian_image_filter', )

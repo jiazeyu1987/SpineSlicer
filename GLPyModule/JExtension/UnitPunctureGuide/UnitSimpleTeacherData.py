@@ -119,6 +119,7 @@ class UnitSimpleTeacherDataWidget(JBaseExtensionWidget):
     util.is_load_from_storge = True
     util.send_event_str(util.ProgressValue,30)
     util.getModuleWidget("JMeasure")._onload(mrb_path)
+    util.singleShot(1000,lambda:util.send_event_str(util.ArchiveFileLoadedEvent))
     util.singleShot(10,lambda:util.send_event_str(util.ProgressValue,100))
     
   def on_add_data_3(self):

@@ -128,7 +128,7 @@
         "show_longmen": 0
     },
     "JModules": {
-        "p_module_need_to_load": "JDoctorAssistantFramework, JMessageBox, JProgressBar, SVGT, JRemoveSkullBoard, JEmptyUITool, JBase, JMeasure, JAnnotation, UnitPunctureGuide, JSegmentEditorTool, JAddFiber, LMJ, OpenAnatomyExport, PayModule"
+        "p_module_need_to_load": "JDoctorAssistantFramework, JMessageBox, JProgressBar, SVGT, JRemoveSkullBoard, JEmptyUITool, JBase, JMeasure, JAnnotation, UnitPunctureGuide, JSegmentEditorTool, JAddFiber, LMJ, OpenAnatomyExport, PayModule, ToTalSegmentator, SlicerSkinExtractor"
     },
     "Page": []
 }

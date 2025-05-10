@@ -1,0 +1,1 @@
+snake_case_functions = ('convolution_image_filter', 'convolution_image_filter_base', 'fft_convolution_image_filter', 'fft_normalized_correlation_image_filter', 'masked_fft_normalized_correlation_image_filter', )

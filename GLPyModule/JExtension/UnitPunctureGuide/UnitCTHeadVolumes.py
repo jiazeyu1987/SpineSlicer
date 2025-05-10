@@ -132,13 +132,87 @@ class UnitCTHeadVolumesWidget(JBaseExtensionWidget):
     
     file_path = (module_path + '/Resources/Icons/seg_bone.png').replace("\\", "/")
     file_style = "background-image: url(" + file_path + ");"
-    self.ui.btn_quick_bone_2.setStyleSheet(file_style)
+    self.ui.btn_quick_bone.setStyleSheet(file_style)
     
+    self.ui.btn_quick_bone.connect('clicked()', lambda:util.getModuleWidget("UnitReconstruction").on_quick_bone())
     self.ui.btn_quick_skin_2.connect('clicked()', lambda:util.getModuleWidget("UnitReconstruction").on_quick_skin())
-    self.ui.btn_quick_bone_2.connect('clicked()', lambda:util.getModuleWidget("UnitReconstruction").on_quick_bone())
+    self.ui.btn_spine.connect('clicked()', self.create_spine)
     
     self.ui.btnTurmo_2.connect('toggled(bool)', self.on_tumor_click)
   
+  
+  def on_high_resolution_skin(self):
+    segment_node = util.getFirstNodeByName("FullHeadSegmentationNode")
+    if segment_node:
+      if segment_node.GetAttribute("high_resolution") == None:
+        util.RemoveNode(segment_node)
+    util.RemoveNodeByName("皮肤")
+    
+    volume_node = self.get_volume()
+    segment_node = util.getFirstNodeByNameByAttribute("FullHeadSegmentationNode","high_resolution","1")
+    seg_name = "FullHeadSegmentationNode"
+    if  segment_node is None:
+      util.CreateDefaultSegmentationNode(seg_name)
+      segment_node = util.getFirstNodeByName(seg_name) 
+      segment_node.SetAttribute("high_resolution","1") 
+      segment = util.GetNthSegment(segment_node,0)
+      segment.SetColor([255/255.0,255/255.0,0/255.0])
+      print("OOOOOOOOOOOOOOOOOO:",volume_node.GetID(),segment_node.GetID())
+      util.getModuleLogic("SkinExtractor").process(volume_node,segment_node)
+      util.RemoveNthSegmentID(segment_node,0)
+    
+    util.RemoveNodeByName("皮肤")
+    SkinSegmentation = util.clone(segment_node)
+    SkinSegmentation.SetName("皮肤")
+    util.send_event_str(util.ProgressStart,"正在分割皮肤")
+    util.send_event_str(util.ProgressValue,30)
+    
+    segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
+    segmentEditorWidget.setSegmentationNode(SkinSegmentation)
+    segmentEditorWidget.setSourceVolumeNode(volume_node)
+    segmentEditorWidget.setActiveEffectByName("Hollow")
+    effect = segmentEditorWidget.activeEffect()
+    effect.setParameter("ShellThicknessMm", self.ui.lineEdit_2.text)
+    effect.setParameter("ShellMode", 'OUTSIDE_SURFACE')
+    effect.self().onApply()
+    
+    util.GetNthSegment(SkinSegmentation,0).SetColor([177/255.0,122/255.0,101/255.0])
+    SkinSegmentation.SetAttribute("alias_name","皮肤")
+    util.color_unit_list.add_item(SkinSegmentation, 2)
+    util.tips_unit_list.add_item(SkinSegmentation, 2)
+    util.HideNode(segment_node)
+    util.ShowNode(SkinSegmentation)
+    util.send_event_str(util.ProgressValue,100)
+    
+    
+  def OnArchiveLoaded(self,_a,_b):
+    print("OnArchiveLoaded UnitCTHeadVolumes")
+    
+    
+  def create_spine(self):
+    node1 = util.CreateDefaultSegmentationNode("全分割")
+    util.getModuleWidget("TotalSegmentator").ui.outputSegmentationSelector.setCurrentNode(node1)
+    util.getModuleWidget("TotalSegmentator").ui.fastCheckBox.setChecked(True)
+    util.getModuleWidget("TotalSegmentator").ui.cpuCheckBox.setChecked(True)
+    util.getModuleWidget("TotalSegmentator").onApplyButton()
+    
+    util.RemoveNodeByName("Spine")
+    segment_node = util.AddNewNodeByClass("vtkMRMLSegmentationNode")
+    segment_node.SetName("Spine")
+    
+    n1 = util.GetSegmentNumber(node1)
+    for i in range(n1):
+        segment = util.GetNthSegment(node1,i)
+        if segment:
+            cname = segment.GetName()
+            if  cname.startswith("vertebrae"):
+                segment_node.GetSegmentation().AddSegment(segment)
+    util.RemoveNodeByName("全分割")
+    
+    segment_node.SetAttribute("alias_name","脊柱")
+    util.color_unit_list.add_item(segment_node, 2)
+    util.tips_unit_list.add_item(segment_node, 2)
+    util.ShowNode3D(segment_node)
   
   def on_tumor_click(self,val):
     val1  =  util.getModuleWidget("UnitReconstruction").on_turmo_click(val)

@@ -1,0 +1,2 @@
+Version: 1.6.0
+Arguments: ['C:\\P\\IPP\\venv-38-x64\\Scripts\\delvewheel', 'repair', '--no-mangle-all', '--add-path', ';C:/P/IPP/oneTBB-prefix/bin', '--ignore-in-wheel', '-w', 'C:\\P\\IPP\\dist', 'C:\\P\\IPP\\dist\\itk_core-5.4.0-cp39-cp39-win_amd64.whl']

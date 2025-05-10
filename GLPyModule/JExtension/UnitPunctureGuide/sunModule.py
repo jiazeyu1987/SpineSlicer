@@ -1121,7 +1121,7 @@ class sunModuleWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         util.set_button_percent(self.ui.pushButton_9,40)
         self.on_interaction_points()
         
-        util.getModuleWidget("sunHeadExport").statistics(self.ui.pushButton_9)
+        #util.getModuleWidget("sunHeadExport").statistics(self.ui.pushButton_9)
         
         volume = util.getFirstNodeByClassByAttribute(util.vtkMRMLScalarVolumeNode,"main_node","1")
         util.hideVolumeRendering(volume)
