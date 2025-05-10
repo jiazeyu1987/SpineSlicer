@@ -78,7 +78,8 @@ class UnitSpineChannelWidget(JBaseExtensionWidget):
         self.bind_point_with_button(self.ui.btn_target,"TargetPoint","TargetPoint", file_path2)
         self.path_entries = []
         self.ui.pushButton.connect('clicked()',self.onReload)
-        
+        self.ui.btn_area.connect('clicked()',self.onExtractSkinFromScissors)
+        self.ui.btn_recommand.connect('clicked()',self.onApplyButton)
     
     def onDeleteItem(self,item):
          # 1. 从 QListWidget 中移除
@@ -148,7 +149,48 @@ class UnitSpineChannelWidget(JBaseExtensionWidget):
     def set_btn_point_defined(self, btn, file_path):        
         btn.setStyleSheet("background-color: #56AC2B;background-image: url(" + file_path + ");")
         btn.setChecked(False)
-        
+    
+    def update_path_info(self):
+        util.RemoveNodeByName("Temp_SkinToTumor_Line")
+                
+        lesionCenter = util.get_world_control_point_by_name("TargetPoint")
+        markupsNode = util.getFirstNodeByName("EntryPoint")
+        if markupsNode.GetNumberOfControlPoints() == 0:
+                return
+        if "boneDistance" not in util.global_data_map:
+            return
+        skinPoint = [0, 0, 0]
+        markupsNode.GetNthControlPointPosition(0, skinPoint)
+
+        distToLesion = np.linalg.norm(np.array(lesionCenter) - np.array(skinPoint))
+
+        numSamples = 20
+        minDist = float('inf')
+        for k in range(numSamples + 1):
+            f = k / numSamples
+            p = [skinPoint[0] * (1 - f) + lesionCenter[0] * f,
+                    skinPoint[1] * (1 - f) + lesionCenter[1] * f,
+                    skinPoint[2] * (1 - f) + lesionCenter[2] * f]
+            dist = util.global_data_map["boneDistance"].EvaluateFunction(p)
+            if dist < minDist:
+                minDist = dist
+
+        riskText = "\n⚠️ 路径风险: 穿近骨" if minDist < 0.1 else "\n✅ 路径安全"
+
+        self.ui.label_2.setText(f"入点到靶点: {distToLesion:.2f} mm\n最大半径: {minDist:.2f} mm{riskText}")
+        lineSource = vtk.vtkLineSource()
+        lineSource.SetPoint1(skinPoint)
+        lineSource.SetPoint2(lesionCenter)
+        lineSource.Update()
+
+        modelNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", "Temp_SkinToTumor_Line")
+        modelNode.SetAndObservePolyData(lineSource.GetOutput())
+        displayNode = util.GetDisplayNode(modelNode)
+        displayNode.SetColor(1.0, 0.0, 0.0) if minDist < 0.1 else displayNode.SetColor(0.0, 1.0, 0.0)
+        displayNode.SetLineWidth(2)
+        self.update_info(distToLesion,minDist)
+    
+    
     def bind_point_with_button(self,btn,point_node_name,label=None,file_path="",archive=False):
       import qt,slicer,vtk
       btn.setStyleSheet("QPushButton:checked{  background-color: #1765AD;background-image: url(" + file_path + ");}")
@@ -162,22 +204,26 @@ class UnitSpineChannelWidget(JBaseExtensionWidget):
           point_node.SetName(point_node_name)
           
           if point_node_name == "EntryPoint":
-                pdLesion = self.logic.segmentationToPolyData(util.getFirstNodeByName("血肿"), "血肿")
-                pdL5 = self.logic.segmentationToPolyData(util.getFirstNodeByName("Spine"), "vertebrae_L4")
-                pdL6 = self.logic.segmentationToPolyData(util.getFirstNodeByName("Spine"), "vertebrae_L5")
-                centerOfMassFilter = vtk.vtkCenterOfMass()
-                centerOfMassFilter.SetInputData(pdLesion)
-                centerOfMassFilter.SetUseScalarsAsWeights(False)
-                centerOfMassFilter.Update()
-                util.global_data_map["lesionCenter"] = centerOfMassFilter.GetCenter()
+              
+                spineSeg  = slicer.util.getFirstNodeByName("Spine")
+                if util.getFirstNodeByName('TargetPoint'):
+                    closest2 = self.findClosestSpineSegments(spineSeg, "TargetPoint", topN=2)
+                    names = []
+                    if closest2:
+                        names = [f"{name}" for name, dist in closest2]
+                    if len(names)!=2:
+                        return
+                    pdL5 = self.logic.segmentationToPolyData(util.getFirstNodeByName("Spine"), names[0])
+                    pdL6 = self.logic.segmentationToPolyData(util.getFirstNodeByName("Spine"), names[1])
+                
 
-                boneAppend = vtk.vtkAppendPolyData()
-                boneAppend.AddInputData(pdL5)
-                boneAppend.AddInputData(pdL6)
-                boneAppend.Update()
-                pdBone = boneAppend.GetOutput()
-                util.global_data_map["boneDistance"] = vtk.vtkImplicitPolyDataDistance()
-                util.global_data_map["boneDistance"].SetInput(pdBone)
+                    boneAppend = vtk.vtkAppendPolyData()
+                    boneAppend.AddInputData(pdL5)
+                    boneAppend.AddInputData(pdL6)
+                    boneAppend.Update()
+                    pdBone = boneAppend.GetOutput()
+                    util.global_data_map["boneDistance"] = vtk.vtkImplicitPolyDataDistance()
+                    util.global_data_map["boneDistance"].SetInput(pdBone)
                     
           
           display_node = util.GetDisplayNode(point_node)
@@ -205,43 +251,11 @@ class UnitSpineChannelWidget(JBaseExtensionWidget):
           pointnode.SetNthControlPointLabel(0,label)
       def on_point_modified(point_node,event):
             if point_node.GetName() == "EntryPoint":
+                util.RemoveNodeByName("Temp_SkinToTumor_Line")
                 if util.getFirstNodeByName("TargetPoint") is None:
                     return
-                util.global_data_map["lesionCenter"] = util.get_world_control_point_by_name("TargetPoint")
-                markupsNode = util.getFirstNodeByName("EntryPoint")
-                if markupsNode.GetNumberOfControlPoints() == 0:
-                        return
-                skinPoint = [0, 0, 0]
-                markupsNode.GetNthControlPointPosition(0, skinPoint)
-
-                distToLesion = np.linalg.norm(np.array(util.global_data_map["lesionCenter"]) - np.array(skinPoint))
-
-                numSamples = 20
-                minDist = float('inf')
-                for k in range(numSamples + 1):
-                    f = k / numSamples
-                    p = [skinPoint[0] * (1 - f) + util.global_data_map["lesionCenter"][0] * f,
-                            skinPoint[1] * (1 - f) + util.global_data_map["lesionCenter"][1] * f,
-                            skinPoint[2] * (1 - f) + util.global_data_map["lesionCenter"][2] * f]
-                    dist = util.global_data_map["boneDistance"].EvaluateFunction(p)
-                    if dist < minDist:
-                        minDist = dist
-
-                riskText = "\n⚠️ 路径风险: 穿近骨" if minDist < 0.1 else "\n✅ 路径安全"
-
-                self.ui.label_2.setText(f"入点到靶点: {distToLesion:.2f} mm\n最大半径: {minDist:.2f} mm{riskText}")
-                lineSource = vtk.vtkLineSource()
-                lineSource.SetPoint1(skinPoint)
-                lineSource.SetPoint2(util.global_data_map["lesionCenter"])
-                lineSource.Update()
-
-                util.RemoveNodeByName("Temp_SkinToTumor_Line")
-                modelNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", "Temp_SkinToTumor_Line")
-                modelNode.SetAndObservePolyData(lineSource.GetOutput())
-                displayNode = util.GetDisplayNode(modelNode)
-                displayNode.SetColor(1.0, 0.0, 0.0) if minDist < 0.1 else displayNode.SetColor(0.0, 1.0, 0.0)
-                displayNode.SetLineWidth(2)
-                self.update_info(distToLesion,minDist)
+                self.update_path_info()
+                
                 
                 
                 
@@ -282,263 +296,21 @@ class UnitSpineChannelWidget(JBaseExtensionWidget):
         point_node.AddObserver(slicer.vtkMRMLMarkupsNode.PointRemovedEvent, on_point_removed)  
         on_point_defined(point_node,"")
   
-  
-  
-  
-    def onParaCaculation(self):
-        node1 = util.getFirstNodeByName("全分割")
-        node2 = util.CreateDefaultSegmentationNode("Spine")
-        
-        n1 = util.GetSegmentNumber(node1)
-        for i in range(n1):
-            segment = util.GetNthSegment(node1,i)
-            if segment:
-                cname = segment.GetName()
-                if  cname.startswith("vertebrae"):
-                    node2.GetSegmentation().AddSegment(segment)
-        util.HideNode(node1)
-    
-    def onParaCaculation2(self):
-        # 计算L2下终板和L3上终板法线向量（通过选取表面上靠近终板的点并平面拟合）
-        def fit_plane_normal(points):
-            """利用点云PCA拟合平面，返回法线向量（单位向量）"""
-            pts = np.array(points)
-            centroid = pts.mean(axis=0)
-            # 奇异值分解，最小奇异值对应法线方向:contentReference[oaicite:9]{index=9}
-            U, S, Vt = np.linalg.svd(pts - centroid)
-            normal = Vt[-1]  # 法线方向
-            normal_unit = normal / np.linalg.norm(normal)
-            return normal_unit
 
-        # 筛选出L2段下表面点和L3段上表面点
-        def get_endplate_points(polydata, top=True, fraction=0.1):
-            """获取polydata顶部或底部一定比例(fraction)的点用于拟合终板平面"""
-            pts = polydata.GetPoints()
-            n = pts.GetNumberOfPoints()
-            coords = [pts.GetPoint(i) for i in range(n)]
-            # 根据Z坐标（RAS坐标中S轴）进行筛选
-            zs = [p[2] for p in coords]
-            if top:
-                z_thresh = max(zs) - (max(zs) - min(zs)) * fraction
-                endplate_pts = [p for p in coords if p[2] >= z_thresh]
-            else:
-                z_thresh = min(zs) + (max(zs) - min(zs)) * fraction
-                endplate_pts = [p for p in coords if p[2] <= z_thresh]
-            return endplate_pts
-        
-        skinSeg = util.getFirstNodeByName("skin")
-        tumorSeg = util.getFirstNodeByName("tumor")
-        spineSeg = util.getFirstNodeByName("spine")
-        
-        pdSkin = self.logic.segmentationToPolyData(skinSeg, "ROI")
-        pdTumor = self.logic.segmentationToPolyData(tumorSeg, "artery")
-        pdL5 = self.logic.segmentationToPolyData(spineSeg, "T10 vertebra")
-        pdL6 = self.logic.segmentationToPolyData(spineSeg, "T11 vertebra")
-        
-
-        # 为加速最近点查找，构建vtkCellLocator用于两段表面
-        locator_L3 = vtk.vtkCellLocator()
-        locator_L3.SetDataSet(pdL5)  # 注意：这里交换顺序，以计算L3表面到L2表面的距离
-        locator_L3.BuildLocator()
-        locator_L2 = vtk.vtkCellLocator()
-        locator_L2.SetDataSet(pdL6)  # 另一方向
-        locator_L2.BuildLocator()
-
-        # 遍历各表面顶点，计算最短距离及对应最近点
-        minDist2 = float("inf")
-        closestPt_L2 = [0.0, 0.0, 0.0]
-        closestPt_L3 = [0.0, 0.0, 0.0]
-        tmpPt = [0.0, 0.0, 0.0]
-        cellId = vtk.reference(0)
-        subId = vtk.reference(0)
-        dist2 = vtk.reference(0.0)
-
-        # L2每个顶点到L3表面的最近距离
-        pts_L2 = pdL5.GetPoints()
-        for i in range(pts_L2.GetNumberOfPoints()):
-            pt = pts_L2.GetPoint(i)
-            locator_L2.FindClosestPoint(pt, tmpPt, cellId, subId, dist2)
-            if dist2.get() < minDist2:
-                minDist2 = dist2.get()
-                closestPt_L2 = list(pt)
-                closestPt_L3 = list(tmpPt)
-
-        # L3每个顶点到L2表面的最近距离
-        pts_L3 = pdL6.GetPoints()
-        for j in range(pts_L3.GetNumberOfPoints()):
-            pt = pts_L3.GetPoint(j)
-            locator_L3.FindClosestPoint(pt, tmpPt, cellId, subId, dist2)
-            if dist2.get() < minDist2:
-                minDist2 = dist2.get()
-                closestPt_L3 = list(pt)
-                closestPt_L2 = list(tmpPt)
-
-        thickness = np.sqrt(minDist2)  # 最短距离（椎间隙厚度）
-        print(f"L5-L6椎间隙最小厚度: {thickness:.2f} mm")
-        
-        
-        L2_inferior_pts = get_endplate_points(pdL5, top=False)   # L2下终板附近点
-        L3_superior_pts = get_endplate_points(pdL6, top=True)    # L3上终板附近点
-
-        normal_L2 = fit_plane_normal(L2_inferior_pts)
-        normal_L3 = fit_plane_normal(L3_superior_pts)
-        # 为保证法线朝向相对（指向椎间隙），若两法线夹角大于90度则翻转一个方向
-        if np.dot(normal_L2, normal_L3) < 0:
-            normal_L3 = -normal_L3
-        # 计算终板夹角（弧度转角度）
-        angle_rad = np.arccos(np.clip(np.dot(normal_L2, normal_L3), -1.0, 1.0))
-        angle_deg = float(np.degrees(angle_rad))
-        print(f"L5-L6终板夹角: {angle_deg:.2f}°")
-
-        # 计算椎间隙中心点（取最近点连线的中点）
-        center = [(closestPt_L2[i] + closestPt_L3[i]) / 2.0 for i in range(3)]
-
-        # 创建3D可视化对象：
-        # 1. 穿刺路径线段模型（连接最近点的直线）
-        lineSource = vtk.vtkLineSource()
-        lineSource.SetPoint1(closestPt_L2[0], closestPt_L2[1], closestPt_L2[2])
-        lineSource.SetPoint2(closestPt_L3[0], closestPt_L3[1], closestPt_L3[2])
-        lineSource.Update()
-        util.RemoveNodeByName("L5-L6_PuncturePath")
-        util.RemoveNodeByName("sphereModel")
-        util.RemoveNodeByName("L5-L6_Angle")
-        util.RemoveNodeByName("MinBoneDistPath")
-        lineModel = slicer.modules.models.logic().AddModel(lineSource.GetOutput())
-        lineModel.SetName("L5-L6_PuncturePath")
-        lineModel.GetDisplayNode().SetColor(0.0, 1.0, 0.0)    # 绿色线段
-        lineModel.GetDisplayNode().SetLineWidth(2)
-
-        # 2. 椎间隙中心点模型（小球）
-        sphereSource = vtk.vtkSphereSource()
-        sphereSource.SetCenter(center[0], center[1], center[2])
-        sphereSource.SetRadius(2.0)  # 半径可根据需要调整
-        sphereSource.Update()
-        sphereModel = slicer.modules.models.logic().AddModel(sphereSource.GetOutput())
-        sphereModel.SetName("L5-L6_DiscCenter")
-        sphereModel.GetDisplayNode().SetColor(1.0, 0.0, 0.0)   # 红色球体标记
-
-        # 3. （可选）终板夹角标记：使用Markups Angle在3D视图显示角度弧线
-        angleNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLMarkupsAngleNode", "L5-L6_Angle")
-        # 取中心点，并沿两法线方向各取一定距离的点来定义角度
-        pt_center = vtk.vtkVector3d(center[0], center[1], center[2])
-        len_mm = 30.0  # 角两侧点离中心的距离
-        pt1 = vtk.vtkVector3d(center[0] + normal_L2[0]*len_mm,
-                            center[1] + normal_L2[1]*len_mm,
-                            center[2] + normal_L2[2]*len_mm)
-        pt2 = vtk.vtkVector3d(center[0] + normal_L3[0]*len_mm,
-                            center[1] + normal_L3[1]*len_mm,
-                            center[2] + normal_L3[2]*len_mm)
-        angleNode.AddControlPoint(pt1)        # 终板L2方向点
-        angleNode.AddControlPoint(pt_center)  # 顶点（中心）
-        angleNode.AddControlPoint(pt2)        # 终板L3方向点
-        angleNode.GetDisplayNode().SetTextScale(2)  # 放大文字显示
-        
-    
-    
+    def get_volume(self):
+        volume = util.getFirstNodeByClassByAttribute(util.vtkMRMLScalarVolumeNode,"main_node","1")
+        return volume
 
 
-    
-    def onPlanMinBoneDistPath(self):
-        skinSeg = util.getFirstNodeByName("skin")
-        tumorSeg = util.getFirstNodeByName("tumor")
-        spineSeg = util.getFirstNodeByName("spine")
-
-        pdSkin = self.logic.segmentationToPolyData(skinSeg, "ROI")
-        pdTumor = self.logic.segmentationToPolyData(tumorSeg, "artery")
-        pdL5 = self.logic.segmentationToPolyData(spineSeg, "T10 vertebra")
-        pdL6 = self.logic.segmentationToPolyData(spineSeg, "T11 vertebra")
-
-        # Combine L5 and L6 to form full bone model
-        boneAppend = vtk.vtkAppendPolyData()
-        boneAppend.AddInputData(pdL5)
-        boneAppend.AddInputData(pdL6)
-        boneAppend.Update()
-        pdBone = boneAppend.GetOutput()
-
-        # Collision detector
-        obbTree = vtk.vtkOBBTree()
-        obbTree.SetDataSet(pdBone)
-        obbTree.BuildLocator()
-
-        # Distance field
-        boneDistance = vtk.vtkImplicitPolyDataDistance()
-        boneDistance.SetInput(pdBone)
-
-        skinPts = self.logic.samplePoints(pdSkin, 50)
-        tumorPts = self.logic.samplePoints(pdTumor, 50)
-
-        bestDist = -1
-        bestE, bestT = None, None
-
-        for i in range(skinPts.GetNumberOfPoints()):
-            e = skinPts.GetPoint(i)
-            for j in range(tumorPts.GetNumberOfPoints()):
-                t = tumorPts.GetPoint(j)
-
-                # First check: is this path collision-free?
-                ptsIntersect = vtk.vtkPoints()
-                cellIds = vtk.vtkIdList()
-                obbTree.IntersectWithLine(e, t, ptsIntersect, cellIds)
-                if ptsIntersect.GetNumberOfPoints() > 0:
-                    continue  # Skip this path, it intersects bone
-
-                # If safe, compute minimum distance to bone along path
-                numSamples = 50
-                minDist = float("inf")
-                for k in range(numSamples + 1):
-                    f = k / numSamples
-                    p = [e[0]*(1-f) + t[0]*f,
-                        e[1]*(1-f) + t[1]*f,
-                        e[2]*(1-f) + t[2]*f]
-                    d = boneDistance.EvaluateFunction(p)
-                    if d < minDist:
-                        minDist = d
-
-                if minDist > bestDist:
-                    bestDist = minDist
-                    bestE = e
-                    bestT = t
-
-        if bestE is None:
-            slicer.util.warningDisplay("未找到有效路径（所有路径与椎体发生碰撞）")
-            return
-
-        # Draw result
-        line = vtk.vtkLineSource()
-        line.SetPoint1(bestE)
-        line.SetPoint2(bestT)
-        line.Update()
-        util.RemoveNodeByName("MaxSafePath")
-        modelNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", "MaxSafePath")
-        modelNode.SetAndObservePolyData(line.GetOutput())
-        displayNode = util.GetDisplayNode(modelNode)
-        displayNode.SetColor(1.0, 0.0, 0.0)  # Red line
-        displayNode.SetLineWidth(3)
-
-        # Add entry and target markers
-        def createSphere(point, color, name):
-            sphere = vtk.vtkSphereSource()
-            sphere.SetCenter(*point)
-            sphere.SetRadius(1.5)
-            sphere.Update()
-            util.RemoveNodeByName(name)
-            node = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", name)
-            node.SetAndObservePolyData(sphere.GetOutput())
-            return node
-
-        createSphere(bestE, (0.0, 1.0, 0.0), "EntryPoint")  # green
-        createSphere(bestT, (0.0, 0.0, 1.0), "TargetPoint")  # blue
-
-        slicer.util.infoDisplay(f"最安全路径已生成，路径最小骨距: {bestDist:.2f} mm")
-    
     def onExtractSkinFromScissors(self):
-        skinSeg = util.getFirstNodeByName("skin")
+        skinSeg = util.getFirstNodeByName("皮肤")
+        util.removeSegmentByName(skinSeg,"ROI")
         skinSeg.GetSegmentation().AddEmptySegment("ROI")
-        skinSeg.GetSegmentation().GetSegment("ROI").SetColor(1.0, 0.0, 0.0)
+        skinSeg.GetSegmentation().GetSegment("ROI").SetColor(0.0, 1.0, 0.0)
         sid = util.GetNthSegmentID(skinSeg,1)
         segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
         segmentEditorWidget.setSegmentationNode(skinSeg)
-        segmentEditorWidget.setSourceVolumeNode(util.getFirstNodeByName("CTChest"))
+        segmentEditorWidget.setSourceVolumeNode(self.get_volume())
         segmentEditorWidget.setCurrentSegmentID(sid)
         slicer.modules.SegmentEditorWidget.editor.setActiveEffectByName("Scissors")
         effect = segmentEditorWidget.activeEffect()
@@ -549,55 +321,76 @@ class UnitSpineChannelWidget(JBaseExtensionWidget):
         segmentEditorWidget.mrmlSegmentEditorNode().SetMaskSegmentID(util.GetNthSegmentID(skinSeg,0))
         segmentEditorWidget.mrmlSegmentEditorNode().SetMaskMode(slicer.vtkMRMLSegmentationNode.EditAllowedInsideSingleSegment)
         
-    def onFindOptimalTarget(self):
-        skinMarkups = slicer.util.getNode("TempSkinPoint")
-        if skinMarkups.GetNumberOfControlPoints() == 0:
-            slicer.util.warningDisplay("请先在皮肤上放置 TempSkinPoint 标记")
-            return
-        skinPoint = [0, 0, 0]
-        skinMarkups.GetNthFiducialPosition(0, skinPoint)
-
-        spineSeg = util.getFirstNodeByName("spine")
-        lesionSeg = util.getFirstNodeByName("tumor")
-        self.logic.findBestTargetFromSkinPoint(skinPoint, lesionSeg, spineSeg, "T10 vertebra", "T11 vertebra")
         
-        
-    def onPickSkinPoint(self):
-            skinSeg = util.getFirstNodeByName("skin")
-            lesionSeg = util.getFirstNodeByName("tumor")
-            spineSeg = util.getFirstNodeByName("spine")
-            self.logic.pickSkinPointAndShowPath(skinSeg, lesionSeg, spineSeg, "T10 vertebra", "T11 vertebra")
 
     def onApplyButton(self):  # noqa: D102
-        spineSeg = util.getFirstNodeByName("spine")
-        skinSeg = util.getFirstNodeByName("skin")
-        lesionSeg = util.getFirstNodeByName("tumor")
-        numEntries = int(self.entrySpinBox.value)
-        numTargets = int(self.targetSpinBox.value)
-        margin = float(self.marginDoubleSpinBox.value)
-        self.logic.planNeedlePaths(spineSeg, "T10 vertebra", "T11 vertebra",
-                                    skinSeg, lesionSeg,
-                                    numEntries, numTargets, margin)
-        
+        if util.getFirstNodeByName("TargetPoint") is None:
+            util.showWarningText("请先创建靶点")
+            return
+        spineSeg  = slicer.util.getFirstNodeByName("Spine")
+        closest2 = self.findClosestSpineSegments(spineSeg, "TargetPoint", topN=2)
+        names = []
+        if closest2:
+            names = [f"{name}" for name, dist in closest2]
+        if len(names)!=2:
+            util.showWarningText("脊柱的分割数量小于2")
+            return
+    
+        # 获取场景中的分割
+        spineSeg  = util.getFirstNodeByName("Spine")
+        skinSeg   = util.getFirstNodeByName("皮肤")
+        numEntries = 1000   # 入口点采样数
+        margin     = 10   # margin 仍可用于骨面范围扩展
+        # 调用新的单路径规划函数
+        EntryPoint = util.getFirstNodeByName("EntryPoint")
+        TargetPoint = util.getFirstNodeByName("TargetPoint")
+        if TargetPoint is None:
+            util.showWarningText("请创建靶点")
+            return
+        if EntryPoint is None:
+            util.showWarningText("请创建入点")
+            return
+        self.planSingleBestPath(
+            spineSeg, names[0],  names[1],
+            skinSeg,
+            numEntries, margin
+        )
 
-class UnitSpineChannelLogic(ScriptedLoadableModuleLogic):  # noqa: D102
-    def segmentationToPolyData(self, segNode, segmentName):
-        import vtk
-        closedSurfacePolyData = vtk.vtkPolyData()
-        segment_id = segNode.GetSegmentation().GetSegmentIdBySegmentName(segmentName)
-        print(segNode.GetName(),segmentName,segment_id)
-        segNode.CreateClosedSurfaceRepresentation()
-        segNode.GetClosedSurfaceRepresentation(segment_id, closedSurfacePolyData)
-        return closedSurfacePolyData
-        import slicer,vtk
-        shNode = slicer.vtkMRMLSubjectHierarchyNode.GetSubjectHierarchyNode(slicer.mrmlScene)
-        exportFolderItemId = shNode.CreateFolderItem(shNode.GetSceneItemID(), "abc")
-        segment_id = segNode.GetSegmentation().GetSegmentIdBySegmentName(segmentName)
-        slicer.modules.segmentations.logic().ExportSegmentsToModels(segNode,[segment_id], exportFolderItemId)
-        segmentModels = vtk.vtkCollection()
-        shNode.GetDataNodesInBranch(exportFolderItemId, segmentModels)
-        ModelNode = segmentModels.GetItemAsObject(0)
-        return ModelNode.GetPolyData()
+    def findClosestSpineSegments(self, spineSegNode, controlPointName, topN=2):
+        """
+        返回距离控制点最近的 topN 个子分割名称及对应距离（mm）。
+        """
+
+        # 1. 获取控制点坐标
+        ctrl = slicer.util.getFirstNodeByName(controlPointName)
+        if not ctrl:
+            slicer.util.errorDisplay(f"找不到控制点「{controlPointName}」")
+            return []
+        point = [0.0, 0.0, 0.0]
+        ctrl.GetNthControlPointPositionWorld(0, point)
+
+        # 2. 枚举所有子分割 ID
+        segmentation = spineSegNode.GetSegmentation()
+        idsArray = vtk.vtkStringArray()
+        segmentation.GetSegmentIDs(idsArray)
+
+        # 3. 对每个子分割，生成 PolyData 并计算距离
+        distances = []
+        for i in range(idsArray.GetNumberOfValues()):
+            segID = idsArray.GetValue(i)
+            seg = segmentation.GetSegment(segID)
+            segName = seg.GetName()
+            # 把该子分割转成 Closed Surface PolyData
+            pd = self.logic.segmentationToPolyData(spineSegNode, segName)
+            # 用 ImplicitDistance 来测点到表面的最短距离
+            imp = vtk.vtkImplicitPolyDataDistance()
+            imp.SetInput(pd)
+            d = abs(imp.EvaluateFunction(point))
+            distances.append((segName, d))
+
+        # 4. 按距离升序排序，取前 topN
+        distances.sort(key=lambda x: x[1])
+        return distances[:topN]
 
 
     def samplePoints(self, polyData, numberOfPoints):  # noqa: D102
@@ -608,244 +401,98 @@ class UnitSpineChannelLogic(ScriptedLoadableModuleLogic):  # noqa: D102
             mask.SetOnRatio(int(nPts / numberOfPoints))
         mask.RandomModeOn()
         mask.Update()
-        return mask.GetOutput().GetPoints()
+        return mask.GetOutput().GetPoints()  # 一定会返回 vtkPoints 对象
 
-    
-    def findBestTargetFromSkinPoint(self, skinPoint, lesionSeg, spineSeg, l5Name, l6Name):
-        pdLesion = self.segmentationToPolyData(lesionSeg, "Segment_1")
-        util.remove_folder_single("abc")
-        pdL5 = self.segmentationToPolyData(spineSeg, l5Name)
-        util.remove_folder_single("abc")
-        pdL6 = self.segmentationToPolyData(spineSeg, l6Name)
-        util.remove_folder_single("abc")
+    def planSingleBestPath(self, spineSeg, l3Name, l4Name,
+                        skinSeg,
+                        numEntries, margin):
+        """
+        在全皮肤表面上寻找一个入口点，与血肿中心连线能在 L3/L4 上
+        保持最大最小骨距（即安全半径最大）。
+        """
 
-        boneAppend = vtk.vtkAppendPolyData()
-        boneAppend.AddInputData(pdL5)
-        boneAppend.AddInputData(pdL6)
-        boneAppend.Update()
-        pdBone = boneAppend.GetOutput()
+        # ——— 1. 分割转 PolyData ———
+        pdL3     = self.logic.segmentationToPolyData(spineSeg, l3Name)
+        pdL4     = self.logic.segmentationToPolyData(spineSeg, l4Name)
+        pdSkin   = self.logic.segmentationToPolyData(skinSeg,   "ROI")
+        if pdSkin.GetNumberOfPoints() == 0:
+            pdSkin   = self.logic.segmentationToPolyData(skinSeg,   "皮肤")
+        lesionCenter = util.get_world_control_point_by_name("TargetPoint")
+
+        # ——— 3. 合并 L3/L4，构建隐式距离场 & OBBTree ———
+        appendBone = vtk.vtkAppendPolyData()
+        appendBone.AddInputData(pdL3)
+        appendBone.AddInputData(pdL4)
+        appendBone.Update()
+        pdBone = appendBone.GetOutput()
+
         boneDistance = vtk.vtkImplicitPolyDataDistance()
         boneDistance.SetInput(pdBone)
 
-        candidates = self.samplePoints(pdLesion, 200)
-        bestDist = -1
-        bestTarget = None
-        for i in range(candidates.GetNumberOfPoints()):
-            tgt = candidates.GetPoint(i)
-            minDist = float('inf')
-            for k in range(21):
-                f = k / 20
-                p = [skinPoint[0] * (1 - f) + tgt[0] * f,
-                     skinPoint[1] * (1 - f) + tgt[1] * f,
-                     skinPoint[2] * (1 - f) + tgt[2] * f]
-                d = boneDistance.EvaluateFunction(p)
-                if d < minDist:
-                    minDist = d
-            if minDist > bestDist:
-                bestDist = minDist
-                bestTarget = tgt
-
-        if bestTarget is None:
-            slicer.util.warningDisplay("无法在病灶中找到有效目标点")
-            return
-
-        slicer.util.infoDisplay(f"最优目标点路径最小骨距: {bestDist:.2f} mm")
-
-        lineSource = vtk.vtkLineSource()
-        lineSource.SetPoint1(skinPoint)
-        lineSource.SetPoint2(bestTarget)
-        lineSource.Update()
-
-        util.RemoveNodeByName("OptimalTargetPath")
-        modelNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", "OptimalTargetPath")
-        modelNode.SetAndObservePolyData(lineSource.GetOutput())
-        displayNode = util.GetDisplayNode(modelNode)
-        if bestDist < 3.0:
-            displayNode.SetColor(1.0, 0.0, 0.0)
-        else:
-            displayNode.SetColor(0.0, 1.0, 0.0)
-        displayNode.SetLineWidth(3)
-        
-        
-    def pickSkinPointAndShowPath(self, skinSeg, lesionSeg, spineSeg, l5Name, l6Name):
-        pdSkin = self.segmentationToPolyData(skinSeg, "Segment_1")
-        util.remove_folder_single("abc")
-        pdLesion = self.segmentationToPolyData(lesionSeg, "Segment_1")
-        util.remove_folder_single("abc")
-        pdL5 = self.segmentationToPolyData(spineSeg, l5Name)
-        util.remove_folder_single("abc")
-        pdL6 = self.segmentationToPolyData(spineSeg, l6Name)
-        util.remove_folder_single("abc")
-
-        centerOfMassFilter = vtk.vtkCenterOfMass()
-        centerOfMassFilter.SetInputData(pdLesion)
-        centerOfMassFilter.SetUseScalarsAsWeights(False)
-        centerOfMassFilter.Update()
-        lesionCenter = centerOfMassFilter.GetCenter()
-
-        markupsNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLMarkupsFiducialNode", "TempSkinPoint")
-        markupsNode.RemoveAllMarkups()
-
-        boneAppend = vtk.vtkAppendPolyData()
-        boneAppend.AddInputData(pdL5)
-        boneAppend.AddInputData(pdL6)
-        boneAppend.Update()
-        pdBone = boneAppend.GetOutput()
-        boneDistance = vtk.vtkImplicitPolyDataDistance()
-        boneDistance.SetInput(pdBone)
-
-        def onPointModified(caller, event):
-            if markupsNode.GetNumberOfControlPoints() == 0:
-                return
-            skinPoint = [0, 0, 0]
-            markupsNode.GetNthFiducialPosition(0, skinPoint)
-
-            distToLesion = np.linalg.norm(np.array(lesionCenter) - np.array(skinPoint))
-
-            numSamples = 20
-            minDist = float('inf')
-            for k in range(numSamples + 1):
-                f = k / numSamples
-                p = [skinPoint[0] * (1 - f) + lesionCenter[0] * f,
-                     skinPoint[1] * (1 - f) + lesionCenter[1] * f,
-                     skinPoint[2] * (1 - f) + lesionCenter[2] * f]
-                dist = boneDistance.EvaluateFunction(p)
-                if dist < minDist:
-                    minDist = dist
-
-            riskText = "\n⚠️ 路径风险: 穿近骨" if minDist < 0.1 else "\n✅ 路径安全"
-
-            print(f"皮肤点到病灶中心: {distToLesion:.2f} mm\n路径与椎体最短距离: {minDist:.2f} mm{riskText}")
-
-            lineSource = vtk.vtkLineSource()
-            lineSource.SetPoint1(skinPoint)
-            lineSource.SetPoint2(lesionCenter)
-            lineSource.Update()
-
-            util.RemoveNodeByName("Temp_SkinToTumor_Line")
-            modelNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", "Temp_SkinToTumor_Line")
-            modelNode.SetAndObservePolyData(lineSource.GetOutput())
-            displayNode = util.GetDisplayNode(modelNode)
-            displayNode.SetColor(1.0, 0.0, 0.0) if minDist < 0.1 else displayNode.SetColor(0.0, 1.0, 0.0)
-            displayNode.SetLineWidth(2)
-
-
-        markupsNode.AddObserver(slicer.vtkMRMLMarkupsNode.PointModifiedEvent, onPointModified)
-        interactionNode = slicer.app.applicationLogic().GetInteractionNode()
-        selectionNode = slicer.app.applicationLogic().GetSelectionNode()
-        selectionNode.SetReferenceActivePlaceNodeClassName("vtkMRMLMarkupsFiducialNode")
-        selectionNode.SetActivePlaceNodeID(markupsNode.GetID())
-        interactionNode.SetCurrentInteractionMode(interactionNode.Place)
-        
-    def planNeedlePaths(self, spineSeg, l5Name, l6Name,
-                    skinSeg, lesionSeg,
-                    numEntries, numTargets, margin):
-        pdL5 = self.segmentationToPolyData(spineSeg, l5Name)
-        util.remove_folder_single("abc")
-        pdL6 = self.segmentationToPolyData(spineSeg, l6Name)
-        util.remove_folder_single("abc")
-        pdSkin = self.segmentationToPolyData(skinSeg, "Segment_1")
-        util.remove_folder_single("abc")
-        pdLesion = self.segmentationToPolyData(lesionSeg, "Segment_1")
-        util.remove_folder_single("abc")
-
-        # Combine L5 and L6 for unified collision detection
-        append = vtk.vtkAppendPolyData()
-        append.AddInputData(pdL5)
-        append.AddInputData(pdL6)
-        append.Update()
-        pdBone = append.GetOutput()
-
-        # Create distance calculator from bone surface
-        boneDistance = vtk.vtkImplicitPolyDataDistance()
-        boneDistance.SetInput(pdBone)
-
-        # ROI bounds
-        b5 = pdL5.GetBounds()
-        b6 = pdL6.GetBounds()
-        zmin = max(b5[4], b6[4])
-        zmax = min(b5[5], b6[5])
-        xmin = min(b5[0], b6[0]) - margin
-        xmax = max(b5[1], b6[1]) + margin
-        ymin = min(b5[2], b6[2]) - margin
-        ymax = max(b5[3], b6[3]) + margin
-        box = vtk.vtkBox()
-        box.SetBounds(xmin, xmax, ymin, ymax, zmin, zmax)
-
-        def clipPolyData(inputPd):
-            clipper = vtk.vtkClipPolyData()
-            clipper.SetInputData(inputPd)
-            clipper.SetClipFunction(box)
-            clipper.InsideOutOn()
-            clipper.Update()
-            return clipper.GetOutput()
-
-        pdLesionROI = clipPolyData(pdLesion)
-        pdSkinROI = clipPolyData(pdSkin)
-
-        targets = self.samplePoints(pdLesionROI, numTargets)
-        entries = self.samplePoints(pdSkinROI, numEntries)
-
-        # Build bone collision OBBTree
         obb = vtk.vtkOBBTree()
         obb.SetDataSet(pdBone)
         obb.BuildLocator()
 
-        # Clear previous paths
-        for n in slicer.util.getNodesByClass('vtkMRMLModelNode'):
-            if n.GetName().startswith('NeedlePaths_'):
-                slicer.mrmlScene.RemoveNode(n)
-
-        # Store feasible paths: (minBoneDistanceAlongPath, entry, target)
-        pathData = []
-        for i in range(entries.GetNumberOfPoints()):
-            e = entries.GetPoint(i)
-            for j in range(targets.GetNumberOfPoints()):
-                t = targets.GetPoint(j)
-                ptsIntersect = vtk.vtkPoints()
-                cellIds = vtk.vtkIdList()
-                obb.IntersectWithLine(e, t, ptsIntersect, cellIds)
-                if ptsIntersect.GetNumberOfPoints() == 0:
-                    # Check minimum distance from line to bone surface
-                    numSamples = 20
-                    minDist = float('inf')
-                    for k in range(numSamples + 1):
-                        f = k / numSamples
-                        p = [e[0] * (1 - f) + t[0] * f,
-                            e[1] * (1 - f) + t[1] * f,
-                            e[2] * (1 - f) + t[2] * f]
-                        dist = boneDistance.EvaluateFunction(p)
-                        if dist < minDist:
-                            minDist = dist
-                    pathData.append((minDist, e, t))
-
-        if len(pathData) == 0:
-            slicer.util.messageBox("未找到可行路径")
+        # ——— 4. 直接在全皮肤上采样入口点 ———
+        entries = self.samplePoints(pdSkin, numEntries)
+        if entries is None or entries.GetNumberOfPoints() == 0:
+            slicer.util.messageBox("未能在皮肤上采样到入口点，请检查皮肤分割或增大 numEntries。")
             return
 
-        # 保留最“安全”的6条路径（离骨最远）
-        pathData.sort(key=lambda x: x[0], reverse=True)
-        topPaths = pathData[:6]
+        # ——— 5. 遍历入口点，计算“入口→lesionCenter”路径的最小骨距，选最大者 ———
+        bestEntry = None
+        bestDist  = -1.0
+        numSamples = 100
 
-        # 显示路径
-        append = vtk.vtkAppendPolyData()
-        for minDist, e, t in topPaths:
-            line = vtk.vtkLineSource()
-            line.SetPoint1(e)
-            line.SetPoint2(t)
-            line.Update()
-            append.AddInputData(line.GetOutput())
-        append.Update()
-        util.RemoveNodeByName("NeedlePaths_Top6Safe")
-        modelNode = slicer.mrmlScene.AddNewNodeByClass('vtkMRMLModelNode', 'NeedlePaths_Top6Safe')
-        modelNode.SetAndObservePolyData(append.GetOutput())
-        displayNode = util.GetDisplayNode(modelNode)
-        displayNode.SetColor(0.2, 0.8, 0.2)  # 安全路径：绿色
-        displayNode.SetLineWidth(2)
+        for i in range(entries.GetNumberOfPoints()):
+            e = entries.GetPoint(i)
+            # 碰撞检测：若与骨相交，则跳过
+            ptsIntersect = vtk.vtkPoints()
+            ids          = vtk.vtkIdList()
+            obb.IntersectWithLine(e, lesionCenter, ptsIntersect, ids)
+            if ptsIntersect.GetNumberOfPoints() > 0:
+                continue
 
-        slicer.util.messageBox(f"已选出离椎体表面最远的6条安全路径。")
+            # 沿线等距采样，求最小距离
+            minDist = float('inf')
+            for k in range(numSamples + 1):
+                f = k / numSamples
+                p = [
+                    e[0] * (1 - f) + lesionCenter[0] * f,
+                    e[1] * (1 - f) + lesionCenter[1] * f,
+                    e[2] * (1 - f) + lesionCenter[2] * f
+                ]
+                d = boneDistance.EvaluateFunction(p)
+                if d < minDist:
+                    minDist = d
+
+            if minDist > bestDist:
+                bestDist  = minDist
+                bestEntry = e
+
+        # ——— 6. 无可行路径时提示 ———
+        if bestEntry is None:
+            slicer.util.messageBox("未找到不穿透骨且满足安全距离的入口点。")
+            return
 
 
+        EntryPoint = util.getFirstNodeByName("EntryPoint")
+        if EntryPoint:
+            EntryPoint.SetNthControlPointPositionWorld(0,bestEntry)
+            self.update_path_info()
+        
+
+class UnitSpineChannelLogic(ScriptedLoadableModuleLogic):  # noqa: D102
+    def segmentationToPolyData(self, segNode, segmentName):
+        import vtk
+        closedSurfacePolyData = vtk.vtkPolyData()
+        segment_id = segNode.GetSegmentation().GetSegmentIdBySegmentName(segmentName)
+        segNode.CreateClosedSurfaceRepresentation()
+        segNode.GetClosedSurfaceRepresentation(segment_id, closedSurfacePolyData)
+        return closedSurfacePolyData
+
+
+    
 
     
  

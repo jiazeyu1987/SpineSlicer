@@ -207,6 +207,10 @@ class ColorUnit:
     segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
     segmentEditorWidget.setSegmentationNode(self.node)
     segmentEditorWidget.setSourceVolumeNode(self.get_volume())
+    
+    sid = util.GetNthSegmentID(self.node,0)
+    segmentEditorWidget.setCurrentSegmentID(sid)
+        
     segmentEditorWidget.setActiveEffectByName("Scissors")
     effect = segmentEditorWidget.activeEffect()
     effect.setParameter("EditIn3DViews", 1)
@@ -217,6 +221,8 @@ class ColorUnit:
     segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
     segmentEditorWidget.setSegmentationNode(self.node)
     segmentEditorWidget.setSourceVolumeNode(self.get_volume())
+    sid = util.GetNthSegmentID(self.node,0)
+    segmentEditorWidget.setCurrentSegmentID(sid)
     segmentEditorWidget.setActiveEffectByName("Smoothing")
     effect = segmentEditorWidget.activeEffect()
     effect.self().onApply()
@@ -816,6 +822,8 @@ class ColorUnit:
     
     
   def on_node_event_change(self, caller=None, event=None):
+    if event == "NoEvent":
+      return
     print(f"Event ID: {event}")
     segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
     if segmentEditorWidget == None:
