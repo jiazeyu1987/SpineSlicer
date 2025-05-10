@@ -337,7 +337,7 @@ class UnitPunctureGuideBottomWidget(JBaseExtensionWidget):
     if boolval:
       self.old_select_module = '创建通道'
       self.clear_info(self.buttonmap['创建通道'])
-      util.layout_panel("middle_left").setModule("UnitSpineChannel")
+      util.layout_panel("middle_left").setModule("SegmentEditor")
       util.SetGlobalSaveValue("unit_bottom_index","4")
       print("whm test on_ste4p")
     else:

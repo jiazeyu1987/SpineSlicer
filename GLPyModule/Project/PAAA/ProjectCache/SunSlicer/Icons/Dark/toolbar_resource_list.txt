@@ -10,3 +10,5 @@ tool_curve.png:		测量长度的工具,左键选择曲线,右键取消
 tool_area.png:		测量面积的工具
 tool_probe.png:		
 tool_reset.png:		将所有窗口的显示重置为初始状态
+btn_redo.png:		还原
+btn_undo.png:		撤销

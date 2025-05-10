@@ -12,7 +12,7 @@ class ViewContextMenu(ScriptedLoadableModule):
     self.parent.title = "Context menu example"
     self.parent.categories = ["Examples"]
     self.parent.contributors = ["Steve Pieper (Isomics, Inc.)"]
-    slicer.app.connect("startupCompleted()", self.onStartupCompleted)
+    util.singleShot(1000,self.onStartupCompleted)
 
   def onStartupCompleted(self):
     """register subject hierarchy plugin once app is initialized"""
@@ -32,22 +32,22 @@ class ViewContextMenuSubjectHierarchyPlugin(AbstractScriptedSubjectHierarchyPlug
   list3D = []
   list2DAnd3D = []
   viewNode = None
-  is_show_label = False
+  is_show_label = True
   is_show_corner = False
   is_show_rule = False
   is_show_orimarker = False
   def __init__(self, scriptedPlugin):
-    self.viewAction = qt.QAction("菜单2D", scriptedPlugin)
+    self.viewAction = qt.QAction("取消操作", scriptedPlugin)
     self.viewAction.objectName = "Menu2D"
     slicer.qSlicerSubjectHierarchyAbstractPlugin.setActionPosition(self.viewAction, slicer.qSlicerSubjectHierarchyAbstractPlugin.SectionNode+5)
     self.viewAction.connect("triggered()", self.onViewAction)
-    #self.list2D.append(self.viewAction)
+    self.list2D.append(self.viewAction)
     
-    self.viewAction3D = qt.QAction("菜单3D", scriptedPlugin)
+    self.viewAction3D = qt.QAction("取消操作", scriptedPlugin)
     self.viewAction3D.objectName = "Menu3D"
     slicer.qSlicerSubjectHierarchyAbstractPlugin.setActionPosition(self.viewAction3D, slicer.qSlicerSubjectHierarchyAbstractPlugin.SectionNode+5)
     self.viewAction3D.connect("triggered()", self.onViewAction3D)
-    #self.list3D.append(self.viewAction3D)
+    self.list3D.append(self.viewAction3D)
     
     self.rotate3DAction = qt.QAction("旋转", scriptedPlugin)
     self.rotate3DAction.objectName = "rotate3DAction"
@@ -56,7 +56,7 @@ class ViewContextMenuSubjectHierarchyPlugin(AbstractScriptedSubjectHierarchyPlug
     self.rotate3DAction.setCheckable(True)
     self.list3D.append(self.rotate3DAction)
     
-    self.showLabelAction = qt.QAction("显示标签", scriptedPlugin)
+    self.showLabelAction = qt.QAction("隐藏标签", scriptedPlugin)
     self.showLabelAction.objectName = "showLabelAction"
     slicer.qSlicerSubjectHierarchyAbstractPlugin.setActionPosition(self.viewAction3D, slicer.qSlicerSubjectHierarchyAbstractPlugin.SectionNode+5)
     self.showLabelAction.connect("triggered()", self.onShowLabelAction)
@@ -79,9 +79,11 @@ class ViewContextMenuSubjectHierarchyPlugin(AbstractScriptedSubjectHierarchyPlug
     slicer.qSlicerSubjectHierarchyAbstractPlugin.setActionPosition(self.viewAction, slicer.qSlicerSubjectHierarchyAbstractPlugin.SectionNode+5)
     self.showRuleAction.connect("triggered()", self.onShowRuleAction)
     self.list2D.append(self.showRuleAction)
+    return
     self.onShowLabelAction()
     self.onShowCornerAction()
     self.onShowOriMarkerAction()
+    
     # self.saveVideoAction = qt.QAction("保存视频", scriptedPlugin)
     # self.saveVideoAction.objectName = "rotate3DAction"
     # slicer.qSlicerSubjectHierarchyAbstractPlugin.setActionPosition(self.viewAction3D, slicer.qSlicerSubjectHierarchyAbstractPlugin.SectionNode+5)
@@ -170,11 +172,12 @@ class ViewContextMenuSubjectHierarchyPlugin(AbstractScriptedSubjectHierarchyPlug
             action.visible = True
 
   def onViewAction(self):
-    print("Custom view action is called")
-    slicer.util.messageBox("This 2d!")
+    segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
+    segmentEditorWidget.setActiveEffectByName(None)
 
   def onViewAction3D(self):
-      slicer.util.messageBox("This 3d!")
+      segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
+      segmentEditorWidget.setActiveEffectByName(None)
 
   def onRotate3DAction(self):
      for viewIndex in range(slicer.app.layoutManager().threeDViewCount):

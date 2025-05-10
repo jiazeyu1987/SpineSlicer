@@ -160,6 +160,8 @@ class JMeasureWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
   tool_elibot = "tool_elibot"
   tool_usb = "tool_usb"
   tool_tick = "tool_tick"
+  tool_redo = "tool_redo"
+  tool_undo = "tool_undo"
   tool_stand_view = "tool_stand_view"
   tool_3Point1Plane = "tool_3Point1Plane"
   tool_bv_upload = "tool_bv_upload"
@@ -516,6 +518,10 @@ class JMeasureWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
       return self.add_tool_tick(parent_widget1321)
     if tool_name == self.tool_usb:
       return self.add_tool_usb(parent_widget1321)
+    if tool_name == self.tool_undo:
+      return self.add_tool_undo(parent_widget1321)
+    if tool_name == self.tool_redo:
+      return self.add_tool_redo(parent_widget1321)
     if tool_name == self.tool_elibot:
       return self.add_tool_elibot(parent_widget1321)
     if tool_name == self.tool_stand_view:
@@ -1953,6 +1959,31 @@ class JMeasureWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
     if  in_name !="tool_ime":
       tool = self.get_tool_by_name("tool_ime")
       tool.btn.setChecked(False)
+  
+  def add_tool_redo(self,parent):
+    layout,btn = self.create_labeled_clicked_button(parent,"btn_redo.png","还原","还原")
+    tool = JMeasureTool(layout,btn,"tool_redo")
+    self.tool_list.append(tool)
+    btn.connect('clicked()', self.on_tool_redo)
+    
+    redo_sc = qt.QShortcut(qt.QKeySequence("Ctrl+Y"), parent)
+    redo_sc.connect('activated()', self.on_tool_redo)
+    return tool
+  def on_tool_redo(self):
+    slicer.modules.segmenteditor.widgetRepresentation().self().editor.redo()
+    
+    
+  def add_tool_undo(self,parent):
+    layout,btn = self.create_labeled_clicked_button(parent,"btn_undo.png","撤销","撤销")
+    tool = JMeasureTool(layout,btn,"tool_undo")
+    self.tool_list.append(tool)
+    btn.connect('clicked()', self.on_tool_undo)
+    
+    undo_sc = qt.QShortcut(qt.QKeySequence("Ctrl+Z"), parent)
+    undo_sc.connect('activated()', self.on_tool_undo)
+    return tool
+  def on_tool_undo(self):
+    slicer.modules.segmenteditor.widgetRepresentation().self().editor.undo()
   
   def add_tool_usb(self,parent):
     layout,btn = self.create_toolbutton(parent,"tool_cross.png","USB","USB")

@@ -199,7 +199,30 @@ class ColorUnit:
     if tipunit:
       tipunit.update_fiber_tags()
 
+  def get_volume(self):
+    volume = util.getFirstNodeByClassByAttribute(util.vtkMRMLScalarVolumeNode,"main_node","1")
+    return volume
+  
+  def on_scissors(self):
+    segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
+    segmentEditorWidget.setSegmentationNode(self.node)
+    segmentEditorWidget.setSourceVolumeNode(self.get_volume())
+    segmentEditorWidget.setActiveEffectByName("Scissors")
+    effect = segmentEditorWidget.activeEffect()
+    effect.setParameter("EditIn3DViews", 1)
+    effect.setParameter("Shape", "FreeForm")
+    effect.setParameter("Operation", "EraseInside")
+  
+  def on_smooth(self):
+    segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
+    segmentEditorWidget.setSegmentationNode(self.node)
+    segmentEditorWidget.setSourceVolumeNode(self.get_volume())
+    segmentEditorWidget.setActiveEffectByName("Smoothing")
+    effect = segmentEditorWidget.activeEffect()
+    effect.self().onApply()
+  
   def showContextMenu(self,position):
+    
     util.trigger_view_tool("")
     contextMenu = qt.QMenu(self.uiWidget)
     deleteAct =  qt.QAction('删除', self.uiWidget)
@@ -213,18 +236,19 @@ class ColorUnit:
     ui.SliderWidget.maximum = 100
     opacity = util.GetDisplayNode(self.node).GetOpacity()
     ui.SliderWidget.value = int(opacity*100)
-    if self.node.GetAttribute("fiber_unit_type") == "entry_point":
-      ui.SliderWidget.connect("valueChanged(double)", self.set_fiber_opacity)
-    elif self.node.GetAttribute("is_head_frame") == "1":
-      ui.SliderWidget.connect("valueChanged(double)", self.set_headframe_opacity)
-    else:
-      ui.SliderWidget.connect("valueChanged(double)", self.set_node_opacity)
-    ui.SliderWidget.decimals = 0
-    ui.label.setText("透明度：")
-    sliderAction.setDefaultWidget(uiWidget)
+    
+    # if self.node.GetAttribute("fiber_unit_type") == "entry_point":
+    #   ui.SliderWidget.connect("valueChanged(double)", self.set_fiber_opacity)
+    # elif self.node.GetAttribute("is_head_frame") == "1":
+    #   ui.SliderWidget.connect("valueChanged(double)", self.set_headframe_opacity)
+    # else:
+    #   ui.SliderWidget.connect("valueChanged(double)", self.set_node_opacity)
+    #ui.SliderWidget.decimals = 0
+    #ui.label.setText("透明度：")
+    #sliderAction.setDefaultWidget(uiWidget)
       
         
-    contextMenu.addAction(deleteAct)
+    
     if self.item_type == 4:      
       modifyNameAct =  qt.QWidgetAction(contextMenu)
       uiWidget2 = slicer.util.loadUI(self.main.resourcePath('UI/ContextLineEditor.ui'))     
@@ -238,8 +262,18 @@ class ColorUnit:
     else:
       colorAct =  qt.QAction('颜色', self.uiWidget)      
       colorAct.triggered.connect(self.colorAction)
-      contextMenu.addAction(sliderAction)
+      #contextMenu.addAction(sliderAction)
       contextMenu.addAction(colorAct)
+      
+      colorAct =  qt.QAction('修剪', self.uiWidget)      
+      colorAct.triggered.connect(self.on_scissors)
+      contextMenu.addAction(colorAct)
+      
+      colorAct =  qt.QAction('平滑', self.uiWidget)      
+      colorAct.triggered.connect(self.on_smooth)
+      contextMenu.addAction(colorAct)
+    
+    
     if self.node.GetAttribute("fiber_unit_type") == "entry_point":
       contextMenu.addSeparator()
       directionAct1 =  qt.QAction('导管视角', self.uiWidget)
@@ -281,7 +315,7 @@ class ColorUnit:
         ui.SliderWidget.decimals = 1
         ui.label.setText("长度:")
         sliderAction.setDefaultWidget(uiWidget)
-        contextMenu.addAction(sliderAction)
+        #contextMenu.addAction(sliderAction)
         
         #设置厚度
         sliderAction = qt.QWidgetAction(contextMenu)
@@ -297,7 +331,7 @@ class ColorUnit:
         ui.SliderWidget.decimals = 1
         ui.label.setText("厚度:")
         sliderAction.setDefaultWidget(uiWidget)
-        contextMenu.addAction(sliderAction)
+        #contextMenu.addAction(sliderAction)
         
         #设置直径
         sliderAction = qt.QWidgetAction(contextMenu)
@@ -313,7 +347,7 @@ class ColorUnit:
         ui.SliderWidget.decimals = 1
         ui.label.setText("直径:")
         sliderAction.setDefaultWidget(uiWidget)
-        contextMenu.addAction(sliderAction)
+        #contextMenu.addAction(sliderAction)
         
       else:
         
@@ -331,7 +365,7 @@ class ColorUnit:
         ui.SliderWidget.decimals = 1
         ui.label.setText("长度:")
         sliderAction.setDefaultWidget(uiWidget)
-        contextMenu.addAction(sliderAction)
+        #contextMenu.addAction(sliderAction)
         
         
         #设置直径
@@ -348,12 +382,13 @@ class ColorUnit:
         ui.SliderWidget.decimals = 1
         ui.label.setText("直径:")
         sliderAction.setDefaultWidget(uiWidget)
-        contextMenu.addAction(sliderAction)
+        #contextMenu.addAction(sliderAction)
     elif self.node.GetAttribute("is_head_frame") == "1":
       ui.widget_2.setVisible(False)    
       
 
     deleteAct.triggered.connect(self.deleteAction)
+    contextMenu.addAction(deleteAct)
     contextMenu.exec_(self.ui.pushButton.mapToGlobal(position))
 
   def set_node_name(self):
@@ -495,6 +530,9 @@ class ColorUnit:
     self.fresh_status()
     
   def fresh_status(self):
+    segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
+    segmentEditorWidget.setActiveEffectByName(None)
+    segmentEditorWidget.setSegmentationNode(None)
     tmp_display_node = util.GetDisplayNode(self.node)
     if tmp_display_node == None:
       return

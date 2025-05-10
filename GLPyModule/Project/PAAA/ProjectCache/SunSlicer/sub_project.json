@@ -94,7 +94,7 @@
     },
     "JMeasure": {
         "module_config": "1",
-        "left_to_right": "tool_layout|tool_slice|tool_screenshot|tool_line|tool_angle|tool_area_open|tool_area|probe|reset",
+        "left_to_right": "tool_layout|tool_slice|tool_screenshot|tool_line|tool_angle|tool_area_open|tool_area|probe|reset|tool_redo|tool_undo",
         "use_tool_bar": 0,
         "orientation": "horizontal",
         "button_width": 24,
